@@ -3,5 +3,7 @@ body{
   }
   canvas {
     margin: 10px;
-    background-color: grey;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
