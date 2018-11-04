@@ -4,7 +4,7 @@ var baseColor = "blue";
 var padding = 5; //space around game on all sides
 var windowSize = 600;
 var border = 150; //space for numbers
-var n = 2; //number of tiles X and Y
+var n = 5; //number of tiles X and Y
 var gap = 2; //gap between tiles (this number should be half of what you with the gap to be)
 var size = (windowSize-border)/n; //size of each tile
 var font = "17px Arial"; //Font for Grid Numbers
@@ -30,11 +30,18 @@ topLayer.addEventListener('click', function(evt) {
     var mousePos = getMousePos(topLayer, evt);
     var coordinates = getIndex(mousePos.x, mousePos.y);
     if (coordinates != null) {
-        if (player[coordinates.x][coordinates.y] == 0) 
-            player[coordinates.x][coordinates.y] = 1;
-        else player[coordinates.x][coordinates.y] = 0;
+        if (player[coordinates.y][coordinates.x] == 0) 
+            player[coordinates.y][coordinates.x] = 1;
+        else player[coordinates.y][coordinates.x] = 0;
     }
     clearCanvas(c2);
     drawLayer2();
     if (checkWin()) alert("WIN");
 }, false);
+
+// window.addEventListener('load', function(){
+    // c2.fillStyle = "red";
+    // c1.beginPath();
+    // c1.arc(100,75,50,0,2*Math.PI);
+    // c1.stroke();
+// }, false);

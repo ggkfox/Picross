@@ -5,7 +5,9 @@ function initualizeArray(){
     for (var i = 0; i < n; i++) {
         arr[i] = new Array(n);
         for (var j = 0; j < n; j++) {
-            arr[i][j] = 0;
+            var x = j;
+            var y = i;
+            arr[y][x] = 0;
         }
     }
     return arr;
@@ -16,7 +18,9 @@ function fillArray(){
     for (var i = 0; i < n; i++) {
         arr[i] = new Array(n);
         for (var j = 0; j < n; j++) {
-            arr[i][j] = Math.round((Math.random()*10)%1);
+            var x = j;
+            var y = i;
+            arr[y][x] = Math.round((Math.random()*10)%1);
         }
     }
     return arr;
@@ -36,9 +40,9 @@ function drawLayer1(){
 function drawLayer2(){
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
-            var x = i;
-            var y = j;
-            if (player[i][j]==1) {
+            var x = j;
+            var y = i;
+            if (player[y][x]==1) {
                 var square = new Square(c2, x, y);
                 square.show();
             }
@@ -55,13 +59,13 @@ function displayNumbers(){
         var y = i;
         for (var j = 0; j < n; j++) {
             var x = j;
-            if (complete[x][y] == 1) temp++;
+            if (complete[y][x] == 1) temp++;
             else if (temp > 0){
-                string += parseInt(temp);
+                string += " " + parseInt(temp);
                 temp = 0;
             }
         }
-        if (temp > 0) string += parseInt(temp);
+        if (temp > 0) string += " " + parseInt(temp);
         c1.font = font;
         c1.textAlign = "end";
         c1.fillText(string, (border+padding+gap)-textDistance, size*y+border+padding+gap+size*(3/5));
@@ -74,7 +78,7 @@ function displayNumbers(){
         var x = i;
         for (var j = n-1; j >= 0; j--) {
             var y = j;
-            if (complete[x][y] == 1) temp++;
+            if (complete[y][x] == 1) temp++;
             else if (temp > 0){
                 numbersTall += 1;
                 c1.font = font;
@@ -101,10 +105,10 @@ function getMousePos(canvas, evt) {
 function getIndex(x, y) {
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
-            var left = size*i+border+padding+gap;
-            var right = size*(i+1)+border+padding;
-            var top = size*j+border+padding+gap;
-            var bot = size*(j+1)+border+padding;
+            var left = size*j+border+padding+gap;
+            var right = size*(j+1)+border+padding;
+            var top = size*i+border+padding+gap;
+            var bot = size*(i+1)+border+padding;
             if (x>left && x<right && y>top && y<bot) {
                 return{
                     x: j,
