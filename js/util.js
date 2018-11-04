@@ -127,3 +127,27 @@ function checkWin(){
     }
     return true;
 }
+
+function drawBalls(){
+    for (var i = 0; i < circles.length; i++) {
+        clearCanvas(c2);
+        c2.fillStyle = "red";
+        c2.beginPath();
+        c2.arc(circles[i].x,circles[i].y,circles[i].r,0,2*Math.PI);
+        c2.stroke();
+
+        if (circles[i].x + circles[i].r > windowSize+padding || circles[i].x - circles[i].r < 0+padding){
+            circles[i].dx *= -1;
+        }
+        if (circles[i].y + circles[i].r > windowSize+padding || circles[i].y - circles[i].r < 0+padding){
+            circles[i].dy *= -1;
+        }
+
+        circles[i].x += circles[i].dx;
+        circles[i].y += circles[i].dy;
+        // circles[i].dx += friction;
+        circles[i].dy += gravity;
+    }
+
+    requestAnimationFrame(drawBalls);
+}

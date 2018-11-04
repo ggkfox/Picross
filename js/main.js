@@ -10,6 +10,9 @@ var size = (windowSize-border)/n; //size of each tile
 var font = "17px Arial"; //Font for Grid Numbers
 var textDistance = 20; //text distance away from first tile
 var fontColor = "black";
+var gravity = 1; //gravity enacted on the balls
+var friction = -1; //how quickly the balls stop rolling;
+
 
 //-----------Canvas Elements [do not change]
 var baseLayer = document.getElementById('layer1');
@@ -39,9 +42,5 @@ topLayer.addEventListener('click', function(evt) {
     if (checkWin()) alert("WIN");
 }, false);
 
-// window.addEventListener('load', function(){
-    // c2.fillStyle = "red";
-    // c1.beginPath();
-    // c1.arc(100,75,50,0,2*Math.PI);
-    // c1.stroke();
-// }, false);
+var circles = [new Circle(100, 100)];
+requestAnimationFrame(drawBalls);
