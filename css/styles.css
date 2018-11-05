@@ -7,6 +7,9 @@ canvas {
 	left: 0;
 	top: 0;
 }
+#ballLayer {
+  pointer-events: none;
+}
 #wrap {
 	position: relative;
 	left: 200px;
