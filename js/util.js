@@ -1,4 +1,4 @@
-function initualizeArray(){
+function blankArray(){
     var arr = new Array(n); //arr[horrizontal][vertical]
     for (var i = 0; i < n; i++) {
         arr[i] = new Array(n);
@@ -11,14 +11,15 @@ function initualizeArray(){
     return arr;
 }
 
-function fillArray(){
+function randomArray(){
     var arr = new Array(n); //arr[horrizontal][vertical]
     for (var i = 0; i < n; i++) {
         arr[i] = new Array(n);
         for (var j = 0; j < n; j++) {
             var x = j;
             var y = i;
-            arr[y][x] = Math.round((Math.random()*10)%1);
+            arr[y][x] = Math.floor((Math.random()*10)%2);
+            if (arr[y][x]==1) tilesRemaining++;
         }
     }
     return arr;
@@ -56,8 +57,6 @@ function drawLayer2(){
 }
 
 function isCorrect(x, y){
-    var x = j;
-    var y = i;
     if (complete[y][x]==1) return true;
     return false;
 }
