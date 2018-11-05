@@ -1,9 +1,21 @@
 body{
     margin: 0;
   }
-  canvas {
-    margin: 10px;
-    position: absolute;
-    left: 0;
-    top: 0;
+canvas {
+	margin: 10px;
+	position: absolute;
+	left: 0;
+	top: 0;
   }
+#wrap {
+	position: relative;
+	left: 50px;
+	bottom: 300px;
+}
+#controls {
+	position: relative;
+	left: 3%;
+	top: 20vh;
+}
+
+  
