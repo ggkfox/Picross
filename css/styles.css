@@ -17,8 +17,15 @@ canvas {
 }
 #controls {
 	position: relative;
-	left: 3%;
+	left: 8%;
 	top: 20vh;
 }
+#mistakes{
+	margin-left: 3%;
+}
+h1.hidden{
+	visibility: hidden;
+}
+
 
   
