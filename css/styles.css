@@ -12,11 +12,11 @@ canvas {
 }
 #controls {
 	position: relative;
-	left: 8%;
+	left: 2%;
 	top: 20vh;
 }
 #mistakes{
-	margin-left: 3%;
+	margin-left: 1.33%;
 }
 .wrap {
 	position: relative;
