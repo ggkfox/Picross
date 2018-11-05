@@ -10,8 +10,8 @@ var size = (windowSize-border)/n; //size of each tile
 var font = "17px Arial"; //Font for Grid Numbers
 var textDistance = 20; //text distance away from first tile
 var fontColor = "black";
-var gravity = 1; //gravity enacted on the balls
-var friction = -1; //how quickly the balls stop rolling;
+var gravity = 0.981; //gravity enacted on the balls
+var friction = .7; //how quickly the balls stop rolling;
 var startTime = null;
 
 
@@ -46,5 +46,5 @@ topLayer.addEventListener('click', function(evt) {
     }
 }, false);
 
-// var circles = [new Circle(100, 100)];
-// requestAnimationFrame(drawBalls);
+var circles = [new Circle(100, 100)];
+requestAnimationFrame(drawBalls);

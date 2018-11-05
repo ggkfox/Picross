@@ -129,24 +129,26 @@ function checkWin(){
 }
 
 function drawBalls(){
+    clearCanvas(c2);
+    c2.fillStyle = "red";
     for (var i = 0; i < circles.length; i++) {
-        clearCanvas(c2);
-        c2.fillStyle = "red";
+        circle = circles[i];
+
         c2.beginPath();
-        c2.arc(circles[i].x,circles[i].y,circles[i].r,0,2*Math.PI);
+        c2.arc(circle.x,circle.y,circle.r,0,2*Math.PI);
         c2.stroke();
 
-        if (circles[i].x + circles[i].r > windowSize+padding || circles[i].x - circles[i].r < 0+padding){
-            circles[i].dx *= -1;
+        if (circle.x + circle.r + circle.dx >= windowSize+padding || circle.x - circle.r + circle.dx <= 0+padding){
+            circle.dx *= -friction;
         }
-        if (circles[i].y + circles[i].r > windowSize+padding || circles[i].y - circles[i].r < 0+padding){
-            circles[i].dy *= -1;
+        if (circle.y + circle.r + circle.dy >= windowSize+padding || circle.y - circle.r + circle.dy <= 0+padding){
+            circle.dy *= -friction;
+            circle.dx *= friction;
         }
+        else circle.dy += gravity;
 
-        circles[i].x += circles[i].dx;
-        circles[i].y += circles[i].dy;
-        // circles[i].dx += friction;
-        circles[i].dy += gravity;
+        circle.x += circle.dx;
+        circle.y += circle.dy;
     }
 
     requestAnimationFrame(drawBalls);
