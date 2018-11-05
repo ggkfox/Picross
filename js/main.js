@@ -5,7 +5,7 @@ var baseColor = "grey";
 var padding = 5; //space around game on all sides
 var windowSize = 600;
 var border = 240; //space for numbers
-var n = 10; //number of tiles X and Y
+var n = 13; //number of tiles X and Y
 var gap = 2; //gap between tiles (this number should be half of what you with the gap to be)
 var size = (windowSize-border)/n; //size of each tile
 var font = "17px Arial"; //Font for Grid Numbers
@@ -29,8 +29,8 @@ baseLayer.height = windowSize + (2 * padding);
 baseLayer.width = windowSize + (2 * padding);
 topLayer.height = windowSize + (2 * padding);
 topLayer.width = windowSize + (2 * padding);
-ballLayer.height = windowSize + (2 * padding);
-ballLayer.width = windowSize + (2 * padding);
+ballLayer.height = windowSize + (2 * padding) + 200;
+ballLayer.width = windowSize + (2 * padding) + 200;
 var c1 = baseLayer.getContext('2d');
 var c2 = topLayer.getContext('2d');
 var c3 = ballLayer.getContext('2d');
@@ -40,6 +40,7 @@ var player = initualizeArray();
 drawLayer1();
 displayNumbers();
 
+//-----LISTENERS------
 topLayer.addEventListener('click', function(evt) {
     var mousePos = getMousePos(topLayer, evt);
     var coordinates = getIndex(mousePos.x, mousePos.y);
@@ -50,10 +51,12 @@ topLayer.addEventListener('click', function(evt) {
     }
     drawLayer2();
     if (startTime == null) startTime = Date.now();
-    if (checkWin()) alert(" you took " + Math.floor((Date.now()-startTime)/1000) + "s to finish the game"); //print final time
+    if (checkWin()) {
+        alert(" you took " + Math.floor((Date.now()-startTime)/1000) + "s to finish the game"); //print final time
+        for (var i = 0; i < 20; i++) {
+            circles.push(new Circle(300, 100));
+        }
+    }
 }, false);
 
-for (var i = 0; i < 20; i++) {
-    circles.push(new Circle(300, 100));
-}
 requestAnimationFrame(drawBalls);
