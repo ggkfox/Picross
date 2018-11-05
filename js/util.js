@@ -93,11 +93,11 @@ function displayNumbers(){
             else if (temp > 0){
                 numbersTall += 1;
                 c1.font = font;
-                c1.fillText(parseInt(temp), size*x+border+padding+gap+size*(3/5), (border+padding+gap)-numbersTall*20);
+                c1.fillText(parseInt(temp), size*x+border+padding+gap+size*(3/5), (border+padding+gap)-numbersTall*18);
                 temp = 0;
             }
         }
-        if (temp > 0) c1.fillText(parseInt(temp), size*x+border+padding+gap+size*(3/5), (border+padding+gap)-(numbersTall+1)*20);
+        if (temp > 0) c1.fillText(parseInt(temp), size*x+border+padding+gap+size*(3/5), (border+padding+gap)-(numbersTall+1)*18);
     }
 }
 
