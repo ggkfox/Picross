@@ -26,18 +26,24 @@ function randomArray(){
 }
 
 function drawLayer1(){
-    var counter = 0;
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
             var x = j;
             var y = i;
             var square = new Square(c1, x, y, baseColor);
             square.show();
-            if (counter == 4) {
-                //draw horrizontal lines
+            //draw horrizontal lines
+            if (y%5 == 0 && y > 0) {
                 c1.beginPath();
-                c1.moveTo(padding, padding+border+size*y);
-                c1.lineTo(padding+windowSize, padding+border+size*y);
+                c1.moveTo(padding, padding+border+size*y + gap/2);
+                c1.lineTo(padding+windowSize, padding+border+size*y + gap/2);
+                c1.stroke();
+            }
+            //draw verticle lines
+            if (x%5 == 0 && x > 0) {
+                c1.beginPath();
+                c1.moveTo(padding+border+size*x + gap/2, padding);
+                c1.lineTo(padding+border+size*x + gap/2, padding+windowSize);
                 c1.stroke();
             }
         }
@@ -101,11 +107,11 @@ function displayNumbers(){
             else if (temp > 0){
                 numbersTall += 1;
                 c1.font = font;
-                c1.fillText(parseInt(temp), size*x+border+padding+gap+size*(3/5), (border+padding+gap)-numbersTall*20);
+                c1.fillText(parseInt(temp), size*x+border+padding+gap+size*(3/5), (border+padding+gap)-numbersTall*18);
                 temp = 0;
             }
         }
-        if (temp > 0) c1.fillText(parseInt(temp), size*x+border+padding+gap+size*(3/5), (border+padding+gap)-(numbersTall+1)*20);
+        if (temp > 0) c1.fillText(parseInt(temp), size*x+border+padding+gap+size*(3/5), (border+padding+gap)-(numbersTall+1)*18);
     }
 }
 
