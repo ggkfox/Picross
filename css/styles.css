@@ -10,11 +10,6 @@ canvas {
 #ballLayer {
   pointer-events: none;
 }
-#wrap {
-	position: relative;
-	left: 200px;
-	bottom: 300px;
-}
 #controls {
 	position: relative;
 	left: 8%;
@@ -22,6 +17,19 @@ canvas {
 }
 #mistakes{
 	margin-left: 3%;
+}
+.wrap {
+	position: relative;
+	left: 200px;
+	bottom: 300px;
+}
+.win {
+	pointer-events:none;
+	z-index: 5;
+	position: absolute;
+	top: 375px;
+	left: 300px;
+	color:black;
 }
 
 
