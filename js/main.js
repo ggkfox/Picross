@@ -42,5 +42,5 @@ topLayer.addEventListener('click', function(evt) {
     if (checkWin()) alert("WIN");
 }, false);
 
-var circles = [new Circle(100, 100)];
-requestAnimationFrame(drawBalls);
+// var circles = [new Circle(100, 100)];
+// requestAnimationFrame(drawBalls);
