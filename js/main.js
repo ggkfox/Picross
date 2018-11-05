@@ -1,10 +1,11 @@
 //-----------Configure The Game
-var topColor = "lightgreen";
+var correctColor = "lightgreen";
+var wrongColor = "red";
 var baseColor = "grey";
 var padding = 5; //space around game on all sides
 var windowSize = 600;
-var border = 150; //space for numbers
-var n = 3; //number of tiles X and Y
+var border = 240; //space for numbers
+var n = 10; //number of tiles X and Y
 var gap = 2; //gap between tiles (this number should be half of what you with the gap to be)
 var size = (windowSize-border)/n; //size of each tile
 var font = "17px Arial"; //Font for Grid Numbers
@@ -47,4 +48,4 @@ topLayer.addEventListener('click', function(evt) {
 }, false);
 
 var circles = [new Circle(100, 100)];
-requestAnimationFrame(drawBalls);
+// requestAnimationFrame(drawBalls);

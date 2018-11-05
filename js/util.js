@@ -31,7 +31,7 @@ function drawLayer1(){
         for (var j = 0; j < n; j++) {
             var x = j;
             var y = i;
-            var square = new Square(c1, x, y);
+            var square = new Square(c1, x, y, baseColor);
             square.show();
         }
     }
@@ -43,7 +43,13 @@ function drawLayer2(){
             var x = j;
             var y = i;
             if (player[y][x]==1) {
-                var square = new Square(c2, x, y);
+                var square;
+                if (complete[y][x]==1) {
+                    square = new Square(c2, x, y, correctColor);
+                }
+                else {
+                    square = new Square(c2, x, y, wrongColor);
+                }
                 square.show();
             }
         }
