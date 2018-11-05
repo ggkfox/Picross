@@ -1,5 +1,3 @@
-
-
 function initualizeArray(){
     var arr = new Array(n); //arr[horrizontal][vertical]
     for (var i = 0; i < n; i++) {
@@ -38,6 +36,7 @@ function drawLayer1(){
 }
 
 function drawLayer2(){
+    clearCanvas(c2);
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
             var x = j;
@@ -54,6 +53,13 @@ function drawLayer2(){
             }
         }
     }
+}
+
+function isCorrect(x, y){
+    var x = j;
+    var y = i;
+    if (complete[y][x]==1) return true;
+    return false;
 }
 
 function displayNumbers(){
@@ -135,14 +141,14 @@ function checkWin(){
 }
 
 function drawBalls(){
-    clearCanvas(c2);
-    c2.fillStyle = "red";
+    clearCanvas(c3);
     for (var i = 0; i < circles.length; i++) {
         circle = circles[i];
 
-        c2.beginPath();
-        c2.arc(circle.x,circle.y,circle.r,0,2*Math.PI);
-        c2.stroke();
+        c3.fillStyle = ballColors[(Math.floor(Math.random()*1000)%ballColors.length)];
+        c3.beginPath();
+        c3.arc(circle.x,circle.y,circle.r,0,2*Math.PI);
+        c3.fill();
 
         if (circle.x + circle.r + circle.dx >= windowSize+padding || circle.x - circle.r + circle.dx <= 0+padding){
             circle.dx *= -friction;

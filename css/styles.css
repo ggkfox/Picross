@@ -1,12 +1,12 @@
 body{
-    margin: 0;
-  }
+  margin: 0;
+}
 canvas {
 	margin: 10px;
 	position: absolute;
 	left: 0;
 	top: 0;
-  }
+}
 #wrap {
 	position: relative;
 	left: 200px;
