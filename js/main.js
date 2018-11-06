@@ -1,5 +1,6 @@
 //-----------Grab html elements
 var htmlMistakes = document.getElementById('mistakes');
+var htmlBackgroundColor = document.getElementsByTagName('body');
 
 //-----------Configuration [adjustable by user]
 var windowSize = 600;
@@ -10,6 +11,10 @@ var correctColor = "lightgreen";
 var fontColor = "black";
 
 //----------Configuartion [not by user]
+var grid = {"border": ["2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "10", "10", "11", "11", "12", "12", "13"],
+			"correctColor" : ["black", "red", "orange", "yellow", "lightgreen", "green", "lightblue", "blue", "purple", "pink"],
+			"backgroundColor" : ["black", "red", "orange", "yellow", "lightgreen", "green", "lightblue", "blue", "purple", "pink"],
+			"fontColor" : ["white", "black", "black", "black",  "black", "black", "black", "black", "black", "black"]}
 var gap = 10; //gap between tiles (this number should be half of what you with the gap to be)
 var padding = 5; //space around game on all sides
 var textDistance = 20; //text distance away from first tile
