@@ -61,7 +61,7 @@ topLayer.addEventListener('click', function(evt) {
             if (isCorrect(coordinates.x, coordinates.y))
                 tilesRemaining--;
             else {
-                htmlMistakes.mistakes;
+                htmlMistakes.textContent = "Mistakes: " + ++mistakes;
             }
         }
     }
