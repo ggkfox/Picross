@@ -94,7 +94,7 @@ htmlBackgroundColorSlider.addEventListener('input', function(){
     htmlBackgroundColor.textContent = "Background Color: " + grid.backgroundColor[htmlBackgroundColorSlider.value];
 	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
     BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
-    drawLayer1();
+    displayNumbers();
 }, false)
 
 htmlBlockColorSlider.addEventListener('input', function(){

@@ -12,7 +12,6 @@ function configureCanvas() {
     complete = randomArray();
     player = blankArray();
     drawLayer1();
-    displayNumbers();
     drawLayer2();
 }
 
@@ -67,6 +66,7 @@ function drawLayer1(){
             }
         }
     }
+    displayNumbers();
 }
 
 function drawLayer2(){
