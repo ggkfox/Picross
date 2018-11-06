@@ -73,15 +73,15 @@ li a.active{
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: lightgreen;
+    background: teal;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    background: lightgreen;
+    background: teal;
     cursor: pointer;
 }
 
