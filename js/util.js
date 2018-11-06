@@ -3,7 +3,7 @@ function configureCanvas() {
 	border = (Math.round(n/2)+1)*17;
 	correctColor = grid.correctColor[htmlBlockColorSlider.value];
 	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
-	htmlBackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
+	BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
     size = (windowSize-border)/n;
     startTime = null;
     tilesRemaining = 0;

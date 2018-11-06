@@ -1,6 +1,6 @@
 //-----------Grab html elements
 var htmlMistakes = document.getElementById('mistakes');
-var htmlBackgroundColor = document.getElementById('body');
+var BackgroundColor = document.getElementById('body');
 var htmlSizeSlider = document.getElementById('gridSize');
 var htmlBackgroundColorSlider = document.getElementById('gridColor');
 var htmlBlockColorSlider = document.getElementById('blockColor');
@@ -93,7 +93,7 @@ htmlSizeSlider.addEventListener('input', function(evt){
 htmlBackgroundColorSlider.addEventListener('input', function(){
     htmlBackgroundColor.textContent = "Background Color: " + grid.backgroundColor[htmlBackgroundColorSlider.value];
 	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
-    htmlBackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
+    BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
     drawLayer1();
 }, false)
 
