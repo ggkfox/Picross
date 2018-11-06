@@ -57,7 +57,7 @@ li a.active{
 }
 .slider{
 	-webkit-appearance: none;
-    width: 15%;
+    width: 100px;
     height: 5px;
     border-radius: 5px;
     background: grey;
