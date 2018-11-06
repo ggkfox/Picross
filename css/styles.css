@@ -3,10 +3,9 @@ body{
 }
 
 canvas {
-	margin: 10px;
+	margin-left:auto;
+	margin-right:auto;
 	position: absolute;
-	left: 0;
-	top: 0;
 }
 
 #ballLayer {
@@ -15,22 +14,28 @@ canvas {
 
 #controls {
 	position: relative;
-	left: 2%;
-	top: 20vh;
+	margin-left:auto;
+	margin-right:auto;
+	float: left;
+	top:20px;
+	left:10px;
+	right:10px;
 }
 
 .wrap {
 	position: relative;
-	left: 200px;
-	bottom: 300px;
+	margin-left:auto;
+	margin-right:auto;
+	float: left;
+	width:50%;
+	left: 10px;
+	right:10px;
 }
 
 .win {
 	pointer-events:none;
 	z-index: 5;
-	position: absolute;
-	top: 375px;
-	left: 300px;
+	position: relative;
 	color:black;
 }
 
@@ -39,11 +44,14 @@ ul{
 	background-color: #333;
 	overflow: hidden;
 	padding: 0;
-	margin: 0;
+	width:1000px;
+	margin-top:0;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 li{
-	float: left;	
+	float:left;
 	font-size: 17px;
 }
 
@@ -63,9 +71,14 @@ li a.active{
 	background-color: #111;
 }
 
-.navbar {
-	position: relative;
-	margin: auto;
+#navbar {
+	margin-left: auto;
+	margin-right: auto;
+}
+#content {
+	margin-left:auto;
+	margin-right:auto;
+	width: 50%;
 }
 
 .slider{
@@ -79,6 +92,7 @@ li a.active{
     -webkit-transition: .4s;
     transition: opacity .4s;
 }
+
 .slider:hover {
     opacity: 1;
 }
