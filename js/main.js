@@ -1,19 +1,24 @@
-//-----------Configuration
-var correctColor = "lightgreen";
-var wrongColor = "red";
-var baseColor = "grey";
-var padding = 5; //space around game on all sides
+//-----------Grab html elements
+var htmlMistakes = document.getElementById('mistakes');
+
+//-----------Configuration [adjustable by user]
 var windowSize = 600;
-var border = 102; //space for numbers
 var n = 10; //number of tiles X and Y
-var gap = 5; //gap between tiles (this number should be half of what you with the gap to be)
+var border = (Math.round(n/2)+1)*17; //space for numbers
 var size = (windowSize-border)/n; //size of each tile
-var font = "17px Arial"; //Font for Grid Numbers
-var textDistance = 20; //text distance away from first tile
+var correctColor = "lightgreen";
 var fontColor = "black";
+
+//----------Configuartion [not by user]
+var gap = 10; //gap between tiles (this number should be half of what you with the gap to be)
+var padding = 5; //space around game on all sides
+var textDistance = 20; //text distance away from first tile
+var font = "17px Arial"; //Font for Grid Numbers
+var baseColor = "grey";
+var wrongColor = "red";
+var ballColors = ["red", "blue", "lightgreen", "yellow", "pink"]
 var gravity = 0.981; //gravity enacted on the balls
 var friction = .7; //how quickly the balls stop rolling/bouncing;
-var ballColors = ["red", "blue", "lightgreen", "yellow", "pink"]
 
 //-----------other needed variables [dont change]
 var startTime = null; 
@@ -50,7 +55,9 @@ topLayer.addEventListener('click', function(evt) {
             player[coordinates.y][coordinates.x] = 1;
             if (isCorrect(coordinates.x, coordinates.y))
                 tilesRemaining--;
-            else mistakes++;
+            else {
+                htmlMistakes.mistakes;
+            }
         }
     }
     drawLayer2();
