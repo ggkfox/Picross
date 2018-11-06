@@ -85,6 +85,8 @@ li a.active{
     cursor: pointer;
 }
 
-
+h3 {
+    text-transform: capitalize;
+}
 
   

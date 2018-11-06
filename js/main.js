@@ -1,21 +1,34 @@
 //-----------Grab html elements
 var htmlMistakes = document.getElementById('mistakes');
-var htmlBackgroundColor = document.getElementsByTagName('body');
+var htmlBackgroundColor = document.getElementById('body');
+var htmlSizeSlider = document.getElementById('gridSize');
+var htmlBackgroundColorSlider = document.getElementById('gridColor');
+var htmlBlockColorSlider = document.getElementById('blockColor');
+var htmlGridSize = document.getElementById('h3GridSize');
+var htmlBackgroundColor = document.getElementById('h3BackgroundColor');
+var htmlBlockColor = document.getElementById('h3BlockColor');
+var htmlNewGame = document.getElementById('newGame');
 
 //-----------Configuration [adjustable by user]
 var windowSize = 600;
-var n = 10; //number of tiles X and Y
+var n = null; //number of tiles X and Y
 var border = (Math.round(n/2)+1)*17; //space for numbers
 var size = (windowSize-border)/n; //size of each tile
 var correctColor = "lightgreen";
-var fontColor = "black";
+var fontColor = "black"; //grid numbers
+var startTime = null; 
+var tilesRemaining;
+var mistakes;
+var circles = [];
+var complete;
+var player;
 
 //----------Configuartion [not by user]
 var grid = {"border": ["2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "10", "10", "11", "11", "12", "12", "13"],
 			"correctColor" : ["black", "red", "orange", "yellow", "lightgreen", "green", "lightblue", "blue", "purple", "pink"],
-			"backgroundColor" : ["black", "red", "orange", "yellow", "lightgreen", "green", "lightblue", "blue", "purple", "pink"],
+			"backgroundColor" : ["black", "red", "orange", "yellow", "lightgreen", "white", "lightblue", "blue", "purple", "pink"],
 			"fontColor" : ["white", "black", "black", "black",  "black", "black", "black", "black", "black", "black"]}
-var gap = 10; //gap between tiles (this number should be half of what you with the gap to be)
+var gap = 4; //gap between tiles (this number should be half of what you with the gap to be)
 var padding = 5; //space around game on all sides
 var textDistance = 20; //text distance away from first tile
 var font = "17px Arial"; //Font for Grid Numbers
@@ -24,13 +37,6 @@ var wrongColor = "red";
 var ballColors = ["red", "blue", "lightgreen", "yellow", "pink"]
 var gravity = 0.981; //gravity enacted on the balls
 var friction = .7; //how quickly the balls stop rolling/bouncing;
-
-//-----------other needed variables [dont change]
-var startTime = null; 
-var mistakes = 0;
-var circles = [];
-var tilesRemaining = 0;
-
 
 //-----------Canvas Elements [do not change]
 var baseLayer = document.getElementById('layer1');
@@ -46,10 +52,7 @@ var c1 = baseLayer.getContext('2d');
 var c2 = topLayer.getContext('2d');
 var c3 = ballLayer.getContext('2d');
 
-var complete = randomArray();
-var player = blankArray();
-drawLayer1();
-displayNumbers();
+configureCanvas();
 
 //-----LISTENERS------
 topLayer.addEventListener('click', function(evt) {
@@ -75,3 +78,27 @@ topLayer.addEventListener('click', function(evt) {
         requestAnimationFrame(drawBalls);
     }
 }, false);
+
+htmlNewGame.addEventListener('click', function(evt) {
+    mistakes = 0;
+    htmlMistakes.textContent = "Mistakes: 0";
+    configureCanvas();
+
+}, false)
+
+htmlSizeSlider.addEventListener('input', function(evt){
+    htmlGridSize.textContent = "Grid Size: " + htmlSizeSlider.value;
+}, false)
+
+htmlBackgroundColorSlider.addEventListener('input', function(){
+    htmlBackgroundColor.textContent = "Background Color: " + grid.backgroundColor[htmlBackgroundColorSlider.value];
+	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlBackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
+    drawLayer1();
+}, false)
+
+htmlBlockColorSlider.addEventListener('input', function(){
+    htmlBlockColor.textContent = "Block Color: " + grid.correctColor[htmlBlockColorSlider.value];
+	correctColor = grid.correctColor[htmlBlockColorSlider.value];
+    drawLayer2();
+}, false)

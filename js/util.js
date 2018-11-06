@@ -1,10 +1,19 @@
 function configureCanvas() {
-	n = document.getElementById('gridSize').value;
+	n = htmlSizeSlider.value;
 	border = (Math.round(n/2)+1)*17;
-	correctColor = grid.correctColor[document.getElementById('blockColor').value];
-	fontColor = grid.fontColor[document.getElementById('gridColor').value];
-	htmlBackgroundColor.style.backgroundColor = grid.backgroundColor[document.getElementById('gridColor').value];
-	size = (windowSize-border)/n;
+	correctColor = grid.correctColor[htmlBlockColorSlider.value];
+	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
+	htmlBackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
+    size = (windowSize-border)/n;
+    startTime = null;
+    tilesRemaining = 0;
+    mistakes = 0;
+    circles = [];
+    complete = randomArray();
+    player = blankArray();
+    drawLayer1();
+    displayNumbers();
+    drawLayer2();
 }
 
 function blankArray(){
@@ -35,6 +44,7 @@ function randomArray(){
 }
 
 function drawLayer1(){
+    clearCanvas(c1);
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
             var x = j;
