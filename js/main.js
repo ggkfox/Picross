@@ -8,6 +8,8 @@ var htmlGridSize = document.getElementById('h3GridSize');
 var htmlBackgroundColor = document.getElementById('h3BackgroundColor');
 var htmlBlockColor = document.getElementById('h3BlockColor');
 var htmlNewGame = document.getElementById('newGame');
+var htmlControlsFont = document.getElementById('controls');
+var htmlSliderColor = document.getElementsByClassName('slider');
 
 //-----------Configuration [adjustable by user]
 var windowSize = 700;
@@ -25,9 +27,9 @@ var player;
 
 //----------Configuartion [not by user]
 var grid = {"border": ["2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "10", "10", "11", "11", "12", "12", "13"],
-			"correctColor" : ["black", "red", "orange", "yellow", "lightgreen", "green", "lightblue", "blue", "purple", "pink"],
-			"backgroundColor" : ["black", "red", "orange", "yellow", "lightgreen", "white", "lightblue", "blue", "purple", "pink"],
-			"fontColor" : ["white", "black", "black", "black",  "black", "black", "black", "black", "black", "black"]}
+			"correctColor" : ["navy", "aqua", "orange", "yellow", "lime", "teal", "white", "maroon", "purple", "olive"],
+			"backgroundColor" : ["peachpuff", "lightyellow", "darkseagreen", "lightcyan", "plum", "snow", "cornsilk", "gainsboro", "wheat", "black"],
+			"fontColor" : ["black", "black", "black", "black",  "black", "black", "black", "black", "black", "white"]}
 var gap = 4; //gap between tiles (this number should be half of what you with the gap to be)
 var padding = 5; //space around game on all sides
 var textDistance = 20; //text distance away from first tile
@@ -97,8 +99,16 @@ htmlBackgroundColorSlider.addEventListener('input', function(){
     drawLayer1();
 }, false)
 
+htmlBackgroundColorSlider.addEventListener('input', function(){
+    htmlBackgroundColor.textContent = grid.backgroundColor[htmlBackgroundColorSlider.value];
+	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
+    BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
+	htmlControlsFont.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    drawLayer1();
+}, false)
+
 htmlBlockColorSlider.addEventListener('input', function(){
-    htmlBlockColor.textContent = "Block Color: " + grid.correctColor[htmlBlockColorSlider.value];
+    htmlBlockColor.textContent = grid.correctColor[htmlBlockColorSlider.value];
 	correctColor = grid.correctColor[htmlBlockColorSlider.value];
     drawLayer2();
 }, false)
