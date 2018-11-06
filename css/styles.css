@@ -55,6 +55,38 @@ li a:hover{
 li a.active{
 	background-color: #111;
 }
+.slider{
+	-webkit-appearance: none;
+    width: 15%;
+    height: 5px;
+    border-radius: 5px;
+    background: grey;
+    outline: none;
+    opacity: .5;
+    -webkit-transition: .4s;
+    transition: opacity .4s;
+}
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: lightgreen;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: lightgreen;
+    cursor: pointer;
+}
 
 
 

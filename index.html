@@ -21,20 +21,17 @@
 	
 	<div id = "controls">
 		<h3>Grid Size</h3>
-			<select>
-				<option value = "7x7">7x7</option>
-				<option value = "13x13">13x13</option>
-			</select>
+			<div>
+			<p><input type="range" min="3" max="25" value="7" class="slider" id="gridSize"></p>
+			</div>
 		<h3>Grid color</h3>
-			<select>
-				<option value = "color1">color1</option>
-				<option value = "color2">color2</option>
-			</select>
+			<div>
+			<p><input type="range" min="1" max="10" value="5" class="slider" id="gridColor"></p>
+			</div>
 		<h3>Block Color</h3>
-			<select>
-				<option value = "color1">color1</option>
-				<option value = "color2">color2</option>
-			</select>
+			<div>
+			<p><input type="range" min="1" max="10" value="5" class="slider" id="blockColor"></p>
+			</div>
 		<h3>Mistakes</h3>
 		<div id="mistakes">0</div>
 	</div>
