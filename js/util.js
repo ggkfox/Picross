@@ -53,14 +53,14 @@ function drawLayer1(){
             //draw horrizontal lines
             if (y%5 == 0 && y > 0) {
                 c1.beginPath();
-                c1.moveTo(padding, padding+border+size*y + gap/2);
+                c1.moveTo(padding+border*0.3, padding+border+size*y + gap/2);
                 c1.lineTo(padding+windowSize, padding+border+size*y + gap/2);
                 c1.stroke();
             }
             //draw verticle lines
             if (x%5 == 0 && x > 0) {
                 c1.beginPath();
-                c1.moveTo(padding+border+size*x + gap/2, padding);
+                c1.moveTo(padding+border+size*x + gap/2, padding+border*0.3);
                 c1.lineTo(padding+border+size*x + gap/2, padding+windowSize);
                 c1.stroke();
             }
@@ -170,6 +170,15 @@ function checkWin(){
         }
     }
     return true;
+}
+
+function circleShow(){
+    if (tilesRemaining>0) return;
+    console.log("MORE CIRCLES");
+    for (var i = 0; i < 15; i++) {
+        circles.push(new Circle(300, 100));
+    }
+    setTimeout(function(){circleShow();}, 3000);
 }
 
 function drawBalls(){

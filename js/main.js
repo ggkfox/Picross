@@ -10,7 +10,7 @@ var htmlBlockColor = document.getElementById('h3BlockColor');
 var htmlNewGame = document.getElementById('newGame');
 
 //-----------Configuration [adjustable by user]
-var windowSize = 600;
+var windowSize = 700;
 var n = null; //number of tiles X and Y
 var border = (Math.round(n/2)+1)*17; //space for numbers
 var size = (windowSize-border)/n; //size of each tile
@@ -35,7 +35,7 @@ var font = "17px Arial"; //Font for Grid Numbers
 var baseColor = "grey";
 var wrongColor = "red";
 var ballColors = ["red", "blue", "lightgreen", "yellow", "pink"]
-var gravity = 0.981; //gravity enacted on the balls
+var gravity = 0.4; //gravity enacted on the balls
 var friction = .7; //how quickly the balls stop rolling/bouncing;
 
 //-----------Canvas Elements [do not change]
@@ -71,11 +71,10 @@ topLayer.addEventListener('click', function(evt) {
     drawLayer2();
     if (startTime == null) startTime = Date.now();
     if (tilesRemaining == 0) {
-        alert(" you took " + Math.floor((Date.now()-startTime)/1000) + "s to finish the game"); //print final time
-        for (var i = 0; i < 20; i++) {
-            circles.push(new Circle(300, 100));
-        }
+        topLayer.style.pointerEvents = "none";
+        // alert(" you took " + Math.floor((Date.now()-startTime)/1000) + "s to finish the game"); //print final time
         requestAnimationFrame(drawBalls);
+        circleShow();
     }
 }, false);
 
@@ -83,7 +82,8 @@ htmlNewGame.addEventListener('click', function(evt) {
     mistakes = 0;
     htmlMistakes.textContent = "Mistakes: 0";
     configureCanvas();
-
+    cancelAnimationFrame(drawBalls);
+    topLayer.style.pointerEvents = "visiblePainted";
 }, false)
 
 htmlSizeSlider.addEventListener('input', function(evt){
@@ -94,7 +94,7 @@ htmlBackgroundColorSlider.addEventListener('input', function(){
     htmlBackgroundColor.textContent = "Background Color: " + grid.backgroundColor[htmlBackgroundColorSlider.value];
 	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
     BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
-    displayNumbers();
+    drawLayer1();
 }, false)
 
 htmlBlockColorSlider.addEventListener('input', function(){
