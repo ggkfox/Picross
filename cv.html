@@ -7,14 +7,19 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Picross</title>
 </head>
-<body id = "body">
+<body id="body">
 
 	<div id = "navbar"></div>
 		<ul>
-			<li><a href ="title.html">Title</a></li>
-			<li><a href ="tutorial.html">Tutorial</a></li>
-			<li><a href ="index.html">Main</a></li>
-			<li><a class="active" href ="cv.html">Curriculum Vitae</a></li>
+			<li class="nav"><a href ="title.html">Title</a></li>
+			<li class="nav"><a href ="tutorial.html">Tutorial</a></li>
+			<li class="nav"><a href ="index.html">Main</a></li>
+			<li class="nav"><a class="active" href ="cv.html">Curriculum Vitae</a></li>
+		</ul>
+		<ul id="login">
+			<li class="login"><button id="login">Login</button></li>
+			<li class="login"><input type="password" name="password" value="Password"></li>
+			<li class="login"><input type="text" name="username" value="Username"></li>	
 		</ul>
 	</div>
 	<script src="js/circle.js"></script>
