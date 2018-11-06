@@ -1,25 +1,30 @@
 body{
-  margin: 0;
+  margin: auto;
 }
+
 canvas {
 	margin: 10px;
 	position: absolute;
 	left: 0;
 	top: 0;
 }
+
 #ballLayer {
   pointer-events: none;
 }
+
 #controls {
 	position: relative;
 	left: 2%;
 	top: 20vh;
 }
+
 .wrap {
 	position: relative;
 	left: 200px;
 	bottom: 300px;
 }
+
 .win {
 	pointer-events:none;
 	z-index: 5;
@@ -28,6 +33,7 @@ canvas {
 	left: 300px;
 	color:black;
 }
+
 ul{
 	list-style-type: none;
 	background-color: #333;
@@ -35,10 +41,12 @@ ul{
 	padding: 0;
 	margin: 0;
 }
+
 li{
 	float: left;	
 	font-size: 17px;
 }
+
 li a{
 	text-align: center;
 	padding: 14px 16px;
@@ -46,12 +54,20 @@ li a{
 	display: block;
 	text-decoration: none;
 }
+
 li a:hover{
 	background-color: #111;
 }
+
 li a.active{
 	background-color: #111;
 }
+
+.navbar {
+	position: relative;
+	margin: auto;
+}
+
 .slider{
 	-webkit-appearance: none;
     width: 100px;
