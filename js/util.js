@@ -1,3 +1,12 @@
+function configureCanvas() {
+	n = document.getElementById('gridSize').value;
+	border = (Math.round(n/2)+1)*17;
+	correctColor = grid.correctColor[document.getElementById('blockColor').value];
+	fontColor = grid.fontColor[document.getElementById('gridColor').value];
+	htmlBackgroundColor.style.backgroundColor = grid.backgroundColor[document.getElementById('gridColor').value];
+	size = (windowSize-border)/n;
+}
+
 function blankArray(){
     var arr = new Array(n); //arr[horrizontal][vertical]
     for (var i = 0; i < n; i++) {
