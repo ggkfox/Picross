@@ -1,5 +1,6 @@
 body{
-  margin: auto;
+  margin: 0;
+  overflow: hidden;
 }
 
 canvas {
@@ -9,89 +10,42 @@ canvas {
 }
 
 #ballLayer {
-  pointer-events: none;
+	pointer-events: none;
 }
-
-#controls {
-	position: relative;
-	margin-left:auto;
-	margin-right:auto;
-	float: left;
-	top:20px;
-	left:10px;
-	right:10px;
+  
+h3 {
+    text-transform: capitalize;
 }
-
-.wrap {
-	position: relative;
-	margin-left:auto;
-	margin-right:auto;
-	width:1000px;
-	left: 10px;
-	right:10px;
-}
-
-.win {
-	pointer-events:none;
-	z-index: 5;
-	position: relative;
-	color:black;
-}
-
-ul{
-	list-style-type: none;
-	background-color: #333;
-	overflow: hidden;
-	padding: 10px 5px 0px 0px;
-}
-
-.containter {
-	margin: 0 15vw 0 15vw;
-}
-
-#nav li{
-	display: inline-block;
-	font-size: 17px;
-}
-#login li{
-	display: inline-block;
-	font-size:17px;
-	padding: 10px 2px 10px 2px;
-}
-
-li a{
-	text-align: center;
-	padding: 14px 16px;
-	color: white;
-	display: block;
-	text-decoration: none;
-}
-
-li a:hover{
-	background-color: #111;
-}
-
-li a.active{
-	background-color: #111;
+ /* navbar */
+.container {
+	margin: 0 10vw 0 10vw;
 }
 
 #navbar {
 	width:100%;
-}
-#content {
-	margin-left:auto;
-	margin-right:auto;
-	text-align:center;
-}
-.footer {
-	position: relative;
-	margin: 10px auto 0px auto;
-	text-align: center;
-	color: white;
 	background-color: #333;
-	padding: 25px 0px 25px 0px;
-	top: 750px;
 }
+
+#links {
+	width: 40vw;
+	display: inline-block;
+}
+
+#login {
+	width: 20vw;
+	display: inline-block;
+}
+
+ /* footer */
+#footer {
+	width:100%;
+	background-color:#333;
+}
+
+
+
+
+
 
 .slider{
 	-webkit-appearance: none;
@@ -127,8 +81,5 @@ li a.active{
     cursor: pointer;
 }
 
-h3 {
-    text-transform: capitalize;
-}
 
   
