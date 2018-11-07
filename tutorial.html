@@ -7,16 +7,29 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Picross</title>
 </head>
-<body>
+<body id="body">
 
 	<div id = "navbar"></div>
-		<ul>
-			<li><a href ="title.html">Title</a></li>
-			<li><a class="active" href ="tutorial.html">Tutorial</a></li>
-			<li><a href ="index.html">Main</a></li>
-			<li><a href ="cv.html">Curriculum Vitae</a></li>
+		<ul id="nav">
+			<li class="nav"><a href ="title.html">Title</a></li>
+			<li class="nav"><a class="active" href ="tutorial.html">Tutorial</a></li>
+			<li class="nav"><a href ="index.html">Main</a></li>
+			<li class="nav"><a href ="cv.html">Curriculum Vitae</a></li>
+			<li class="nav" class="login"><input type="text" name="username" placeholder="Username"></li>
+			<li class="nav" class="login"><input type="password" name="password" placeholder="Password"></li>
+			<li class="nav" class="login"><button id="login">Login</button></li>
 		</ul>
 	</div>
+	<div class = "wrap">
+		<div id = "content">
+			<p>Picross Reimagined</p>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p>Jace Black - Beau Duinkerken - Joshua Holland</p>
+	</div>
+	
 	<script src="js/circle.js"></script>
     <script src="js/util.js"></script>
     <script src="js/square.js"></script>
