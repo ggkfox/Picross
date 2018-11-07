@@ -10,16 +10,20 @@
 </head>
 <body id="body">
 
-	<div id = "navbar"></div>
+	<div id = "navbar">
+		<div class="container">
 		<ul id="nav">
 			<li class="nav"><a href ="title.html">Title</a></li>
 			<li class="nav"><a href ="tutorial.html">Tutorial</a></li>
 			<li class="nav"><a class="active" href ="index.html">Main</a></li>
 			<li class="nav"><a href ="cv.html">Curriculum Vitae</a></li>
+		</ul>
+		<ul id="login">
 			<li class="nav" class="login"><input type="text" name="username" placeholder="Username"></li>
 			<li class="nav" class="login"><input type="password" name="password" placeholder="Password"></li>
 			<li class="nav" class="login"><button id="login">Login</button></li>
 		</ul>
+		</div>
 	</div>
 	
 	<div class="wrap">
@@ -56,9 +60,10 @@
 		<canvas id="layer2" style="z-index: 1;"></canvas>
 		<canvas id="ballLayer" style="z-index: 2;"></canvas>
 	</div>
-
 	<div class="footer">
-		<p>Jace Black - Beau Duinkerken - Joshua Holland</p>
+		<div class="container">
+			<p>Jace Black - Beau Duinkerken - Joshua Holland</p>
+		</div>
 	</div>
 	
     <script src="js/circle.js"></script>

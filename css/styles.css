@@ -42,13 +42,11 @@ ul{
 	list-style-type: none;
 	background-color: #333;
 	overflow: hidden;
-	padding: 0;
-	margin-top: 0;
-	margin-bottom: 0;
-	width:1000px;
-	margin-left:auto;
-	margin-right:auto;
 	padding: 10px 5px 0px 0px;
+}
+
+.containter {
+	margin: 0 15vw 0 15vw;
 }
 
 #nav li{
@@ -78,29 +76,21 @@ li a.active{
 }
 
 #navbar {
-	margin-left: auto;
-	margin-right: auto;
+	width:100%;
 }
 #content {
 	margin-left:auto;
 	margin-right:auto;
-	width: 1000px;
 	text-align:center;
 }
 .footer {
 	position: relative;
 	margin: 10px auto 0px auto;
-	width: 1000px;
-	height: 50px;
 	text-align: center;
 	color: white;
 	background-color: #333;
 	padding: 25px 0px 25px 0px;
 	top: 750px;
-}
-
-.footer p{
-	margin-right: 150px;
 }
 
 .slider{
