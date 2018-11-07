@@ -85,6 +85,7 @@ htmlNewGame.addEventListener('click', function(evt) {
     htmlMistakes.textContent = "Mistakes: 0";
     configureCanvas();
     cancelAnimationFrame(drawBalls);
+    circles = [];
     topLayer.style.pointerEvents = "visiblePainted";
 }, false)
 
