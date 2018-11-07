@@ -52,11 +52,11 @@ ul{
 }
 
 #nav li{
-	float:left;
+	display: inline-block;
 	font-size: 17px;
 }
 #login li{
-	float:right;
+	display: inline-block;
 	font-size:17px;
 	padding: 10px 2px 10px 2px;
 }
