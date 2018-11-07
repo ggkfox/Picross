@@ -87,6 +87,16 @@ li a.active{
 	width: 1000px;
 	text-align:center;
 }
+.footer {
+	position: relative;
+	margin: 10px auto 0px auto;
+	width: 1000px;
+	text-align: center;
+	height: 50px;
+	color: white;
+	background-color: #333;
+	padding: 25px 0px 25px 0px;
+}
 
 .slider{
 	-webkit-appearance: none;
