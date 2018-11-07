@@ -99,6 +99,10 @@ li a.active{
 	top: 750px;
 }
 
+.footer p{
+	margin-right: 150px;
+}
+
 .slider{
 	-webkit-appearance: none;
     width: 100px;
