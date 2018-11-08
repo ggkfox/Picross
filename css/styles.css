@@ -9,6 +9,10 @@ canvas {
 }
   
 /*-----globals-----*/
+body {
+	margin: 0;
+}
+
 h3 {
     text-transform: capitalize;
 }
@@ -21,7 +25,7 @@ h3 {
 
 /*-----navbar-----*/
 .navbar {
-	height: 100px;
+	height: 75px;
 	width:100%;
 	background-color: #333;
 }
@@ -31,10 +35,9 @@ h3 {
 }
 
 ul {
-	display: inline;
+	display: flex;
 	position: relative;
-	margin: 30px 0;
-	padding: 0;
+	margin: 27px 0;
 }
 
 #links {
@@ -46,8 +49,23 @@ ul {
 }
 
 li {
-	list-style-type: none;;
+	list-style-type: none;
 	display: inline;
+}
+
+li a {
+	text-align: center;
+	padding: 29px 16px;
+	color: white;
+	text-decoration: none;
+}
+
+li a:hover{
+	background-color: #111;
+}
+
+li a.active{
+	background-color: #111;
 }
 
 /*-----body-----*/
