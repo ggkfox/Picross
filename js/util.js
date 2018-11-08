@@ -174,9 +174,8 @@ function checkWin(){
 
 function circleShow(){
     if (tilesRemaining>0) return;
-    console.log("MORE CIRCLES");
     for (var i = 0; i < 15; i++) {
-        circles.push(new Circle(300, 100));
+        circles.push(new Circle(300, 100, Math.floor(Math.random()*1000)%ballColors.length));
     }
     setTimeout(function(){circleShow();}, 3000);
 }
@@ -186,15 +185,15 @@ function drawBalls(){
     for (var i = 0; i < circles.length; i++) {
         circle = circles[i];
 
-        c3.fillStyle = ballColors[(Math.floor(Math.random()*1000)%ballColors.length)];
+        c3.fillStyle = ballColors[circle.color];
         c3.beginPath();
         c3.arc(circle.x,circle.y,circle.r,0,2*Math.PI);
         c3.fill();
 
-        if (circle.x + circle.r + circle.dx >= windowSize+padding || circle.x - circle.r + circle.dx <= 0+padding){
+        if (circle.x + circle.r + circle.dx >= windowSize+padding || circle.x - circle.r + circle.dx <= 0+padding+border){
             circle.dx *= -friction;
         }
-        if (circle.y + circle.r + circle.dy >= windowSize+padding || circle.y - circle.r + circle.dy <= 0+padding){
+        if (circle.y + circle.r + circle.dy >= windowSize+padding || circle.y - circle.r + circle.dy <= 0+padding+border){
             circle.dy *= -friction;
             circle.dx *= friction;
         }
@@ -203,6 +202,6 @@ function drawBalls(){
         circle.x += circle.dx;
         circle.y += circle.dy;
     }
-
+    winText.style.color = ballColors[(Math.floor(Math.random()*1000)%ballColors.length)];
     requestAnimationFrame(drawBalls);
 }
