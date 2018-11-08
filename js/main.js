@@ -6,11 +6,14 @@ var htmlBackgroundColorSlider = document.getElementById('gridColor');
 var htmlBlockColorSlider = document.getElementById('blockColor');
 var htmlGridSize = document.getElementById('h3GridSize');
 var htmlBackgroundColor = document.getElementById('h3BackgroundColor');
+var htmlBackgroundColorT = document.getElementById('h3BackgroundColorT');
 var htmlBlockColor = document.getElementById('h3BlockColor');
+var htmlBlockColorT = document.getElementById('h3BlockColorT');
 var htmlNewGame = document.getElementById('newGame');
 var htmlControlsFont = document.getElementById('controls');
 var htmlSliderColor = document.getElementsByClassName('slider');
 var winText = document.getElementById('win');
+var htmlmode = document.getElementById('mode');
 
 //-----------Configuration [adjustable by user]
 var windowSize = 700;
@@ -99,7 +102,13 @@ htmlBackgroundColorSlider.addEventListener('input', function(){
     htmlBackgroundColor.textContent = grid.backgroundColor[htmlBackgroundColorSlider.value];
 	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
     BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
-	htmlControlsFont.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlGridSize.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlBackgroundColor.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlBackgroundColorT.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlBlockColor.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlBlockColorT.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlMistakes.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlmode.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     drawLayer1();
 }, false)
 
