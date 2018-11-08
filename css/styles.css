@@ -80,13 +80,12 @@ li a.active{
 }
 
 /*-----body-----*/
-<<<<<<< HEAD
 td {
 	vertical-align:top;
-=======
+}
+
 #win {
 	display: none;
->>>>>>> d6f27b3b32cf1d56c5ff2ad6f4dffc26ed5df07a
 }
 
 /*-----sliders-----*/
