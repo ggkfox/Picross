@@ -10,6 +10,7 @@ var htmlBlockColor = document.getElementById('h3BlockColor');
 var htmlNewGame = document.getElementById('newGame');
 var htmlControlsFont = document.getElementById('controls');
 var htmlSliderColor = document.getElementsByClassName('slider');
+var winText = document.getElementById('win');
 
 //-----------Configuration [adjustable by user]
 var windowSize = 700;
@@ -55,6 +56,7 @@ var c2 = topLayer.getContext('2d');
 var c3 = ballLayer.getContext('2d');
 
 configureCanvas();
+requestAnimationFrame(drawBalls);
 
 //-----LISTENERS------
 topLayer.addEventListener('click', function(evt) {
@@ -73,18 +75,18 @@ topLayer.addEventListener('click', function(evt) {
     drawLayer2();
     if (startTime == null) startTime = Date.now();
     if (tilesRemaining == 0) {
+        winText.style.display = "block";
         topLayer.style.pointerEvents = "none";
         // alert(" you took " + Math.floor((Date.now()-startTime)/1000) + "s to finish the game"); //print final time
-        requestAnimationFrame(drawBalls);
         circleShow();
     }
 }, false);
 
 htmlNewGame.addEventListener('click', function(evt) {
+    winText.style.display = "none";
     mistakes = 0;
     htmlMistakes.textContent = "Mistakes: 0";
     configureCanvas();
-    cancelAnimationFrame(drawBalls);
     circles = [];
     topLayer.style.pointerEvents = "visiblePainted";
 }, false)
