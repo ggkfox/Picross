@@ -204,7 +204,7 @@ function drawBalls(){
         circle.x += circle.dx;
         circle.y += circle.dy;
     }
-    winText.style.color = ballColors[(Math.floor(Math.random()*1000)%ballColors.length)];
+    //winText.style.color = ballColors[(Math.floor(Math.random()*1000)%ballColors.length)];
     requestAnimationFrame(drawBalls);
 }
 
