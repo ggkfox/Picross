@@ -52,10 +52,20 @@ ul {
 
 #links {
 	float: left;
+	width:40%;
 }
 
 #login {
 	float: right;
+	width: 40%;
+}
+
+#tLinks {
+	width:50%
+}
+
+#tLogin {
+	width:50%;
 }
 
 li {
@@ -86,6 +96,18 @@ td {
 
 #win {
 	display: none;
+}
+
+.controls {
+	width:20%;
+}
+
+.ccontainer {
+	width:60%;
+}
+
+.statistics {
+	width:20%;
 }
 
 /*-----sliders-----*/

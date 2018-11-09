@@ -14,6 +14,9 @@ var htmlControlsFont = document.getElementById('controls');
 var htmlSliderColor = document.getElementsByClassName('slider');
 var winText = document.getElementById('win');
 var htmlmode = document.getElementById('mode');
+var htmlTimer = document.getElementById('timer');
+var htmlLeaderboard = document.getElementById('leaderboard');
+var htmlScores = document.getElementById('scores');
 
 //-----------Configuration [adjustable by user]
 var windowSize = 700;
@@ -22,7 +25,10 @@ var border = (Math.round(n/2)+1)*17; //space for numbers
 var size = (windowSize-border)/n; //size of each tile
 var correctColor = "lightgreen";
 var fontColor = "black"; //grid numbers
-var startTime = null; 
+var startTime = 0;
+var currTimeM = 0;
+var currTimeS = 0; 
+var activeGame = false;
 var tilesRemaining;
 var mistakes;
 var circles = [];
@@ -68,20 +74,24 @@ topLayer.addEventListener('click', function(evt) {
     if (coordinates != null) {
         if (player[coordinates.y][coordinates.x] == 0) {
             player[coordinates.y][coordinates.x] = 1;
-            if (isCorrect(coordinates.x, coordinates.y))
+            if (isCorrect(coordinates.x, coordinates.y)) {
                 tilesRemaining--;
+                activeGame = true;
+            }
             else {
                 htmlMistakes.textContent = "Mistakes: " + ++mistakes;
+                activeGame = true;
             }
         }
     }
     drawLayer2();
-    if (startTime == null) startTime = Date.now();
+    calculateTime();
     if (tilesRemaining == 0) {
         winText.style.display = "block";
         topLayer.style.pointerEvents = "none";
-        // alert(" you took " + Math.floor((Date.now()-startTime)/1000) + "s to finish the game"); //print final time
+        calculateTime();
         circleShow();
+        activeGame = false;
     }
 }, false);
 
@@ -92,6 +102,9 @@ htmlNewGame.addEventListener('click', function(evt) {
     configureCanvas();
     circles = [];
     topLayer.style.pointerEvents = "visiblePainted";
+    activeGame = false;
+    currTimeM = 0;
+    currTimeS = 0;
 }, false)
 
 htmlSizeSlider.addEventListener('input', function(evt){
@@ -109,6 +122,9 @@ htmlBackgroundColorSlider.addEventListener('input', function(){
     htmlBlockColorT.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     htmlMistakes.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     htmlmode.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlTimer.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlLeaderboard.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlScores.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     drawLayer1();
 }, false)
 

@@ -12,17 +12,24 @@
 
 	<div class="navbar">
 		<div class="container">
-			<ul id="links">
-				<li class="nav"><a href ="title.html">Title</a></li>
-				<li class="nav"><a href ="tutorial.html">Tutorial</a></li>
-				<li class="nav"><a class="active" href ="index.html">Main</a></li>
-				<li class="nav"><a href ="cv.html">Curriculum Vitae</a></li>
-			</ul>
-			<ul id="login">
-				<li class="nav" class="login"><input type="text" name="username" placeholder="Username"></li>
-				<li class="nav" class="login"><input type="password" name="password" placeholder="Password"></li>
-				<li class="nav" class="login"><button id="login">Login</button></li>
-			</ul>
+			<table>
+				<tr>
+				<td id="tLinks">
+					<ul id="links">
+						<li class="nav"><a href ="title.html">Title</a></li>
+						<li class="nav"><a href ="tutorial.html">Tutorial</a></li>
+						<li class="nav"><a class="active" href ="index.html">Main</a></li>
+						<li class="nav"><a href ="cv.html">CV</a></li>
+					</ul>
+				</td>
+				<td id="tLogin">
+					<ul id="login">
+						<li class="nav" class="login"><input type="text" name="username" placeholder="Username"></li>
+						<li class="nav" class="login"><input type="password" name="password" placeholder="Password"></li>
+						<li class="nav" class="login"><button id="loginB">Login</button></li>
+					</ul>
+				</td>
+			</tr>
 		</div>
 	</div>
 	
@@ -49,7 +56,6 @@
 							<div>
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="blockColor"></p>
 							</div>
-						<h3 id="mistakes" >Mistakes: 0</h3>
 							<p><button id="newGame">New Game</button></p>
 						<h3 id="mode">Mode:</h3>
 							<h3 class="class" id="mode"></h3>
@@ -66,6 +72,14 @@
 						<canvas id="layer1"></canvas>
 						<canvas id="layer2"></canvas>
 						<canvas id="ballLayer"></canvas>
+					</div>
+				</td>
+				<td class="statistics">
+					<div>
+						<h3 id="timer"> Time: 0 Minutes and 00 Seconds</h3>
+						<h3 id="mistakes">Mistakes: 0</h3>
+						<h3 id="leaderboard">Leaderboard</h3>
+						<h3 id="scores"></h3>
 					</div>
 				</td>
 			</tr>

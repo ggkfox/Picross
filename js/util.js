@@ -5,7 +5,9 @@ function configureCanvas() {
 	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
 	BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
     size = (windowSize-border)/n;
-    startTime = null;
+    startTime = 0;
+    currTimeM = 0;
+    currTimeS = 0;
     tilesRemaining = 0;
     mistakes = 0;
     circles = [];
@@ -204,4 +206,22 @@ function drawBalls(){
     }
     winText.style.color = ballColors[(Math.floor(Math.random()*1000)%ballColors.length)];
     requestAnimationFrame(drawBalls);
+}
+
+function calculateTime() {
+    if (activeGame == true) {
+        if (startTime == 0) startTime = Date.now();
+        currTimeM = Math.floor((Date.now()-startTime)/60000);
+        currTimeS = Math.floor((Date.now()-startTime)/1000) % 60;
+        if (currTimeS < 10) {
+            htmlTimer.textContent = "Time: " + currTimeM + " Minutes and 0" + currTimeS + " Seconds";
+        }
+        else {
+            htmlTimer.textContent = "Time: " + currTimeM + " Minutes and " + currTimeS + " Seconds";
+        }
+    }
+    else {
+        htmlTimer.textContent = "Time: 0 Minutes and 00 Seconds";
+    }
+    setTimeout(calculateTime, 1000);
 }
