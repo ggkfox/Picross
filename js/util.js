@@ -214,14 +214,14 @@ function calculateTime() {
         currTimeM = Math.floor((Date.now()-startTime)/60000);
         currTimeS = Math.floor((Date.now()-startTime)/1000) % 60;
         if (currTimeS < 10) {
-            htmlTimer.textContent = "Time: " + currTimeM + " Minutes and 0" + currTimeS + " Seconds";
+            htmlTimer.textContent = "Time: " + currTimeM + " 0" + currTimeS;
         }
         else {
-            htmlTimer.textContent = "Time: " + currTimeM + " Minutes and " + currTimeS + " Seconds";
+            htmlTimer.textContent = "Time: " + currTimeM + " " + currTimeS;
         }
     }
     else {
-        htmlTimer.textContent = "Time: 0 Minutes and 00 Seconds";
+        htmlTimer.textContent = "Time: 0 00";
     }
     setTimeout(calculateTime, 1000);
 }
