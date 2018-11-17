@@ -37,15 +37,15 @@ var player;
 
 //----------Configuartion [not by user]
 var grid = {"border": ["2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "10", "10", "11", "11", "12", "12", "13"],
-			"correctColor" : ["navy", "aqua", "orange", "yellow", "lime", "teal", "white", "maroon", "purple", "olive"],
-			"backgroundColor" : ["peachpuff", "lightyellow", "darkseagreen", "lightcyan", "plum", "snow", "cornsilk", "gainsboro", "wheat", "black"],
+			"correctColor" : ["navy", "aqua", "orange", "yellow", "lime", "teal", "white", "saddlebrown", "purple", "olive"],
+			"backgroundColor" : ["powderblue", "rosybrown", "lavender", "lightcyan", "thistle", "snow", "cornsilk", "gainsboro", "darkslategrey", "black"],
 			"fontColor" : ["black", "black", "black", "black",  "black", "black", "black", "black", "black", "white"]}
 var gap = 4; //gap between tiles (this number should be half of what you with the gap to be)
 var padding = 5; //space around game on all sides
 var textDistance = 20; //text distance away from first tile
 var font = "17px Arial"; //Font for Grid Numbers
 var baseColor = "grey";
-var wrongColor = "red";
+var wrongColor = "black";
 var ballColors = ["red", "blue", "lightgreen", "yellow", "pink"]
 var gravity = 0.4; //gravity enacted on the balls
 var friction = .7; //how quickly the balls stop rolling/bouncing;
