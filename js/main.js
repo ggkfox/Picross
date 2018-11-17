@@ -19,7 +19,7 @@ var htmlLeaderboard = document.getElementById('leaderboard');
 var htmlScores = document.getElementById('scores');
 
 //-----------Configuration [adjustable by user]
-var windowSize = 700;
+var windowSize = 575;
 var n = null; //number of tiles X and Y
 var border = (Math.round(n/2)+1)*17; //space for numbers
 var size = (windowSize-border)/n; //size of each tile

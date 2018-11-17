@@ -104,7 +104,7 @@ td {
 }
 
 .ccontainer {
-	width:80%;
+	width:60%;
 }
 
 .statistics {
@@ -154,7 +154,8 @@ td {
 	font-weight: bold;
 	background-color:#333;
 	width:100%;
-	height: 75px;
+	height: 40px;
+	padding-bottom: 5px;
 	bottom: 0;
 }
 
