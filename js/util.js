@@ -1,3 +1,28 @@
+function arrayToString(arr) {
+    str = "";
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j < n; j++) {
+            var x = j;
+            var y = i;
+            str += parseInt(arr[y][x]);
+        }
+    }
+    return str;
+}
+
+function stringToArray(str) {
+    var arr = new Array(n);
+    for (var i = 0; i < n; i++) {
+        arr[i] = new Array(n);
+        for (var j = 0; j < n; j++) {
+            var x = j;
+            var y = i;
+            arr[y][x] = str[n*i+j];
+        }
+    }
+    return arr;
+}
+
 function configureCanvas() {
 	n = htmlSizeSlider.value;
 	border = (Math.round(n/2)+1)*17;
