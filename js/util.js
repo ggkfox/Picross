@@ -71,7 +71,6 @@ function blankArray(){
 }
 
 function randomArray(){
-    /*
     var arr = new Array(n);
     for (var i = 0; i < n; i++) {
         arr[i] = new Array(n);
@@ -82,24 +81,7 @@ function randomArray(){
             if (arr[y][x]==1) tilesRemaining++;
         }
     }
-    */
-    
-    var arr = [];
-    var xhttp;
-    
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            arr = JSON.parse(JSON.parse(this.responseText));
-            arrayHolder(arr);
-        }
-    };
-    xhttp.open("GET", "json/json.txt", true);
-    xhttp.send();
-    
-    //tilesRemaining();
     return arr;
-
 }
 
 function drawLayer1(){

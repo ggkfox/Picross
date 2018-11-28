@@ -99,6 +99,10 @@ td {
 	display: none;
 }
 
+#demo {
+	display: none;
+}
+
 .controls {
 	width:20%;
 }
