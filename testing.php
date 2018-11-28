@@ -9,8 +9,29 @@
 </head>
 <body id="body">
 
-	<h1>test</h1>
+    <h1 id="demo"></h1>
 
-    <?php include 'php/table.php'?>
+    <script>
+        /*
+        var xhttp;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var complete = JSON.parse(this.responseText);
+                alert("h1");
+            }
+        };
+        xhttp.open("GET", "json/json.txt", true);
+        xhttp.send(); 
+        */
+        var arr = [1,2,3,4,5,6,7,8,9]
+        var newArr = [];
+        while(arr.length) newArr.push(arr.splice(0,3));
+        console.log(newArr);
+
+
+    </script>
+
+    <?php //include 'php/table.php' ?>
 </body>
 </html>

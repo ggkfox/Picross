@@ -23,6 +23,21 @@ function stringToArray(str) {
     return arr;
 }
 
+function tilesRemaining() {
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j < n; j++) {
+            var x = j;
+            var y = i;
+            if (arr[y][x]==1) tilesRemaining++;
+        }
+    }
+}
+
+function arraryHolder(arr) {
+
+    console.log(arr);
+}
+
 function configureCanvas() {
 	n = htmlSizeSlider.value;
 	border = (Math.round(n/2)+1)*17;
@@ -56,7 +71,8 @@ function blankArray(){
 }
 
 function randomArray(){
-    var arr = new Array(n); //arr[horrizontal][vertical]
+    /*
+    var arr = new Array(n);
     for (var i = 0; i < n; i++) {
         arr[i] = new Array(n);
         for (var j = 0; j < n; j++) {
@@ -66,7 +82,24 @@ function randomArray(){
             if (arr[y][x]==1) tilesRemaining++;
         }
     }
+    */
+    
+    var arr = [];
+    var xhttp;
+    
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            arr = JSON.parse(JSON.parse(this.responseText));
+            arrayHolder(arr);
+        }
+    };
+    xhttp.open("GET", "json/json.txt", true);
+    xhttp.send();
+    
+    //tilesRemaining();
     return arr;
+
 }
 
 function drawLayer1(){
