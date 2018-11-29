@@ -177,7 +177,7 @@ function checkWin(){
 function circleShow(){
     if (tilesRemaining>0) return;
     for (var i = 0; i < 15; i++) {
-        circles.push(new Circle(300, 100, Math.floor(Math.random()*1000)%ballColors.length));
+        circles.push(new Circle((windowSize-border)/2+border+padding, (windowSize-border)/2+border+padding, Math.floor(Math.random()*1000)%ballColors.length));
     }
     setTimeout(function(){circleShow();}, 3000);
 }
