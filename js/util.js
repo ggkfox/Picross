@@ -23,7 +23,7 @@ function stringToArray(str) {
     return arr;
 }
 
-function CountRemaining(complete) {
+function countRemaining(complete) {
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
             var x = j;
@@ -46,8 +46,8 @@ function configureCanvas() {
     tilesRemaining = 0;
     mistakes = 0;
     circles = [];
-    complete = randomArray();
-    CountRemaining(complete);
+    complete = generateArray();
+    countRemaining(complete);
     player = blankArray();
     drawLayer1();
     drawLayer2();
@@ -66,7 +66,7 @@ function blankArray(){
     return arr;
 }
 
-function randomArray(){
+function generateArray(){
 
     if (document.getElementById("gameMode").value == "arcade") {
         var arr = [];
@@ -78,7 +78,7 @@ function randomArray(){
                 arr = JSON.parse(JSON.parse(this.responseText));  
             }
         };
-        xhttp.open("GET", "json/json.txt", false);
+        xhttp.open("POST", "json/json.txt", false);
         xhttp.send();
         console.log(arr);
     }
@@ -92,7 +92,7 @@ function randomArray(){
                 arr = JSON.parse(JSON.parse(this.responseText));  
             }
         };
-        xhttp.open("GET", "json/json.txt", false);
+        xhttp.open("POST", "json/json.txt", false);
         xhttp.send();
         console.log(arr);
     }
@@ -271,7 +271,6 @@ function drawBalls(){
         circle.x += circle.dx;
         circle.y += circle.dy;
     }
-    //winText.style.color = ballColors[(Math.floor(Math.random()*1000)%ballColors.length)];
     requestAnimationFrame(drawBalls);
 }
 
