@@ -23,19 +23,14 @@ function stringToArray(str) {
     return arr;
 }
 
-function tilesRemaining() {
+function CountRemaining(complete) {
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
             var x = j;
             var y = i;
-            if (arr[y][x]==1) tilesRemaining++;
+            if (complete[y][x]==1) tilesRemaining++;
         }
     }
-}
-
-function arraryHolder(arr) {
-
-    console.log(arr);
 }
 
 function configureCanvas() {
@@ -52,6 +47,7 @@ function configureCanvas() {
     mistakes = 0;
     circles = [];
     complete = randomArray();
+    CountRemaining(complete);
     player = blankArray();
     drawLayer1();
     drawLayer2();
@@ -71,16 +67,47 @@ function blankArray(){
 }
 
 function randomArray(){
-    var arr = new Array(n);
-    for (var i = 0; i < n; i++) {
-        arr[i] = new Array(n);
-        for (var j = 0; j < n; j++) {
-            var x = j;
-            var y = i;
-            arr[y][x] = Math.floor((Math.random()*10)%2);
-            if (arr[y][x]==1) tilesRemaining++;
+
+    if (document.getElementById("gameMode").value == "arcade") {
+        var arr = [];
+        var xhttp;
+
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                arr = JSON.parse(JSON.parse(this.responseText));  
+            }
+        };
+        xhttp.open("GET", "json/json.txt", false);
+        xhttp.send();
+        console.log(arr);
+    }
+    else if (document.getElementById("gameMode").value == "time") {
+        var arr = [];
+        var xhttp;
+
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                arr = JSON.parse(JSON.parse(this.responseText));  
+            }
+        };
+        xhttp.open("GET", "json/json.txt", false);
+        xhttp.send();
+        console.log(arr);
+    }
+    else {
+        var arr = new Array(n);
+        for (var i = 0; i < n; i++) {
+            arr[i] = new Array(n);
+            for (var j = 0; j < n; j++) {
+                var x = j;
+                var y = i;
+                arr[y][x] = Math.floor((Math.random()*10)%2);
+            }
         }
     }
+
     return arr;
 }
 
