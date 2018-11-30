@@ -1,3 +1,5 @@
+var levelname = 0;
+
 function arrayToString(arr) {
     str = "";
     for (var i = 0; i < n; i++) {
@@ -68,6 +70,13 @@ function blankArray(){
 
 function generateArray(){
 
+    if(levelname != 10) {
+        levelname++;
+    }
+    else {
+        levelname=1;
+    }
+
     if (document.getElementById("gameMode").value == "arcade") {
         var arr = [];
         var xhttp;
@@ -79,7 +88,7 @@ function generateArray(){
                 arr = JSON.parse(JSON.parse(this.responseText));
             }
         };
-        xhttp.open("GET", "php/getBoard.php?size="+size, false);
+        xhttp.open("GET", "php/getBoard.php?size="+size+"&levelname="+levelname, false);
         xhttp.send();
         //console.log(arr);
     }
