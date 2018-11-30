@@ -17,6 +17,7 @@ var htmlmode = document.getElementById('mode');
 var htmlTimer = document.getElementById('timer');
 var htmlLeaderboard = document.getElementById('leaderboard');
 var htmlScores = document.getElementById('scores');
+var htmlScoreOrder = document.getElementById('scoreOrder');
 
 //-----------Configuration [adjustable by user]
 var windowSize = 575;
@@ -90,6 +91,7 @@ topLayer.addEventListener('click', function(evt) {
         winText.style.display = "block";
         topLayer.style.pointerEvents = "none";
         calculateTime();
+        sendScore();
         circleShow();
         activeGame = false;
     }
@@ -134,3 +136,10 @@ htmlBlockColorSlider.addEventListener('input', function(){
 	correctColor = grid.correctColor[htmlBlockColorSlider.value];
     drawLayer2();
 }, false)
+
+htmlScoreOrder.addEventListener('click', function(){
+    levelname--;
+    getScores();
+    levelname++;
+}, false)
+

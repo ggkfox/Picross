@@ -1,3 +1,4 @@
+var htmlScoreOrder = document.getElementById('scoreOrder');
 var levelname = 1;
 var sort =  0;
 var asc = 0;
@@ -38,6 +39,9 @@ function countRemaining(complete) {
 }
 
 function configureCanvas() {
+    if (n != htmlSizeSlider.value) {
+        levelname = 1;
+    }
 	n = htmlSizeSlider.value;
 	border = (Math.round(n/2)+1)*17;
 	correctColor = grid.correctColor[htmlBlockColorSlider.value];
@@ -305,6 +309,23 @@ function calculateTime() {
 function getScores() {
     var xhttp;
     var size = n;
+    //console.log(levelname);
+    if (htmlScoreOrder.value == "scoreDesc") {
+        sort =  0;
+        asc = 1;
+    }
+    else if (htmlScoreOrder.value == "durationAsc") {
+        sort =  1;
+        asc = 0;
+    }
+    else if (htmlScoreOrder.value == "durationDesc") {
+        sort =  1;
+        asc = 1;        
+    }
+    else {
+        sort =  0;
+        asc = 0;
+    }
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -313,5 +334,23 @@ function getScores() {
         }
     };
     xhttp.open("GET", "php/getScores.php?size="+size+"&levelname="+levelname+"&sort="+sort+"&asc="+asc, true);
+    xhttp.send();
+}
+
+function sendScore() {
+    var xhttp;
+    var username = "temp";
+    var size = n;
+    var duration = currTimeM * 60 + currTimeS;
+    var score = 5; // score formula
+    var errors = mistakes;
+
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            getScores();
+        }
+    };
+    xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
     xhttp.send();
 }

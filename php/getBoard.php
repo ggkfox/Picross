@@ -1,8 +1,8 @@
 <?php
 include_once("connection.php");
 
-$size = $_GET["size"];
-$levelname = $_GET["levelname"];
+$size = (isset($_GET["size"])) ? $_GET["size"] : '0';
+$levelname = (isset($_GET["levelname"])) ? $_GET["levelname"] : '0';
 
 $select_level = "SELECT position FROM levels WHERE levelname = '$levelname' AND levelSize='$size';";
     
