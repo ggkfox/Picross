@@ -107,7 +107,9 @@ htmlNewGame.addEventListener('click', function(evt) {
     activeGame = false;
     currTimeM = 0;
     currTimeS = 0;
+    levelname--;
     getScores();
+    levelname++;
 }, false)
 
 htmlSizeSlider.addEventListener('input', function(evt){

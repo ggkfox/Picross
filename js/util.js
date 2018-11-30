@@ -346,11 +346,6 @@ function sendScore() {
     var errors = mistakes;
 
     xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            getScores();
-        }
-    };
     xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
     xhttp.send();
 }
