@@ -12,7 +12,7 @@ $tbl_users = "CREATE TABLE IF NOT EXISTS users (
                avatar VARCHAR(255) NULL,
                PRIMARY KEY (id),
                UNIQUE KEY username (username)
-             )";
+            )";
 
 $tbl_scores = "CREATE TABLE IF NOT EXISTS scores (
                id INT(5) NOT NULL AUTO_INCREMENT,
@@ -23,7 +23,7 @@ $tbl_scores = "CREATE TABLE IF NOT EXISTS scores (
                score INT(3) NOT NULL,
                errors INT(3) NOT NULL,
                PRIMARY KEY (id)
-              )";
+            )";
 
 $tbl_levels = "CREATE TABLE IF NOT EXISTS levels (
                id INT(5) NOT NULL AUTO_INCREMENT,
@@ -31,7 +31,7 @@ $tbl_levels = "CREATE TABLE IF NOT EXISTS levels (
                levelname VARCHAR(10) NOT NULL,
                position VARCHAR(10000) NOT NULL,
                PRIMARY KEY (id)
-             )";
+            )";
 
 $query = $conn->query($tbl_users);
 if ($query === TRUE) {
