@@ -65,7 +65,6 @@ var c2 = topLayer.getContext('2d');
 var c3 = ballLayer.getContext('2d');
 
 configureCanvas();
-getScores();
 requestAnimationFrame(drawBalls);
 
 //-----LISTENERS------
