@@ -13,4 +13,5 @@ $row = $result->fetch_assoc();
 echo json_encode($row['position']);
 
 $conn->close();
+
 ?>
