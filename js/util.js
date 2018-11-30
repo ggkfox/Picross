@@ -71,16 +71,17 @@ function generateArray(){
     if (document.getElementById("gameMode").value == "arcade") {
         var arr = [];
         var xhttp;
-
+        var size = n;
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                arr = JSON.parse(JSON.parse(this.responseText));  
+                //alert(this.responseText);
+                arr = JSON.parse(JSON.parse(this.responseText));
             }
         };
-        xhttp.open("POST", "json/json.txt", false);
+        xhttp.open("GET", "php/getBoard.php?size="+size, false);
         xhttp.send();
-        console.log(arr);
+        //console.log(arr);
     }
     else if (document.getElementById("gameMode").value == "time") {
         var arr = [];
@@ -94,7 +95,7 @@ function generateArray(){
         };
         xhttp.open("POST", "json/json.txt", false);
         xhttp.send();
-        console.log(arr);
+        //console.log(arr);
     }
     else {
         var arr = new Array(n);

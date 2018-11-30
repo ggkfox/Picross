@@ -25,6 +25,7 @@ $tbl_scores = "CREATE TABLE IF NOT EXISTS scores (
 
 $tbl_levels = "CREATE TABLE IF NOT EXISTS levels (
                id INT(5) NOT NULL AUTO_INCREMENT,
+               levelsize INT(10) NOT NULL,
                levelname VARCHAR(10) NOT NULL,
                position VARCHAR(10000) NOT NULL,
                PRIMARY KEY (id)
