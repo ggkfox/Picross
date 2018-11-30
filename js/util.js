@@ -23,6 +23,16 @@ function stringToArray(str) {
     return arr;
 }
 
+function countRemaining(complete) {
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j < n; j++) {
+            var x = j;
+            var y = i;
+            if (complete[y][x]==1) tilesRemaining++;
+        }
+    }
+}
+
 function configureCanvas() {
 	n = htmlSizeSlider.value;
 	border = (Math.round(n/2)+1)*17;
@@ -36,7 +46,8 @@ function configureCanvas() {
     tilesRemaining = 0;
     mistakes = 0;
     circles = [];
-    complete = randomArray();
+    complete = generateArray();
+    countRemaining(complete);
     player = blankArray();
     drawLayer1();
     drawLayer2();
@@ -55,17 +66,49 @@ function blankArray(){
     return arr;
 }
 
-function randomArray(){
-    var arr = new Array(n); //arr[horrizontal][vertical]
-    for (var i = 0; i < n; i++) {
-        arr[i] = new Array(n);
-        for (var j = 0; j < n; j++) {
-            var x = j;
-            var y = i;
-            arr[y][x] = Math.floor((Math.random()*10)%2);
-            if (arr[y][x]==1) tilesRemaining++;
+function generateArray(){
+
+    if (document.getElementById("gameMode").value == "arcade") {
+        var arr = [];
+        var xhttp;
+        var size = n;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //alert(this.responseText);
+                arr = JSON.parse(JSON.parse(this.responseText));
+            }
+        };
+        xhttp.open("GET", "php/getBoard.php?size="+size, false);
+        xhttp.send();
+        //console.log(arr);
+    }
+    else if (document.getElementById("gameMode").value == "time") {
+        var arr = [];
+        var xhttp;
+
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                arr = JSON.parse(JSON.parse(this.responseText));  
+            }
+        };
+        xhttp.open("POST", "json/json.txt", false);
+        xhttp.send();
+        //console.log(arr);
+    }
+    else {
+        var arr = new Array(n);
+        for (var i = 0; i < n; i++) {
+            arr[i] = new Array(n);
+            for (var j = 0; j < n; j++) {
+                var x = j;
+                var y = i;
+                arr[y][x] = Math.floor((Math.random()*10)%2);
+            }
         }
     }
+
     return arr;
 }
 
@@ -229,7 +272,6 @@ function drawBalls(){
         circle.x += circle.dx;
         circle.y += circle.dy;
     }
-    //winText.style.color = ballColors[(Math.floor(Math.random()*1000)%ballColors.length)];
     requestAnimationFrame(drawBalls);
 }
 

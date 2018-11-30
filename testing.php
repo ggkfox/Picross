@@ -9,8 +9,10 @@
 </head>
 <body id="body">
 
-	<h1>test</h1>
+    <h1 id="demo"></h1>
 
-    <?php include 'php/table.php'?>
+    
+
+    <?php include 'php/table.php' ?>
 </body>
 </html>
