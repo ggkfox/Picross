@@ -1,4 +1,6 @@
-var levelname = 0;
+var levelname = 1;
+var sort =  0;
+var asc = 0;
 
 function arrayToString(arr) {
     str = "";
@@ -51,8 +53,16 @@ function configureCanvas() {
     complete = generateArray();
     countRemaining(complete);
     player = blankArray();
+    getScores();
     drawLayer1();
     drawLayer2();
+
+    if(levelname != 10) {
+        levelname++;
+    }
+    else {
+        levelname=1;
+    }
 }
 
 function blankArray(){
@@ -69,13 +79,6 @@ function blankArray(){
 }
 
 function generateArray(){
-
-    if(levelname != 10) {
-        levelname++;
-    }
-    else {
-        levelname=1;
-    }
 
     if (document.getElementById("gameMode").value == "arcade") {
         var arr = [];
@@ -297,4 +300,18 @@ function calculateTime() {
         htmlTimer.textContent = "Time: 0 00";
     }
     setTimeout(calculateTime, 1000);
+}
+
+function getScores() {
+    var xhttp;
+    var size = n;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var message = JSON.parse(this.responseText);
+            htmlScores.innerHTML = message;
+        }
+    };
+    xhttp.open("GET", "php/getScores.php?size="+size+"&levelname="+levelname+"&sort="+sort+"&asc="+asc, true);
+    xhttp.send();
 }

@@ -65,6 +65,7 @@ var c2 = topLayer.getContext('2d');
 var c3 = ballLayer.getContext('2d');
 
 configureCanvas();
+getScores();
 requestAnimationFrame(drawBalls);
 
 //-----LISTENERS------
@@ -105,6 +106,7 @@ htmlNewGame.addEventListener('click', function(evt) {
     activeGame = false;
     currTimeM = 0;
     currTimeS = 0;
+    getScores();
 }, false)
 
 htmlSizeSlider.addEventListener('input', function(evt){
