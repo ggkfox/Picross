@@ -44,7 +44,12 @@ h3 {
 	position: absolute;
 }
 
-ul {
+ul#links{
+	display: flex;
+	position: relative;
+	margin: 27px 0;
+}
+ul#login{
 	display: flex;
 	position: relative;
 	margin: 27px 0;
@@ -68,7 +73,7 @@ ul {
 	width:50%;
 }
 
-li {
+li.nav {
 	list-style-type: none;
 	display: inline;
 }
@@ -89,6 +94,16 @@ li a.active{
 	background-color: #111;
 	padding: 32px 16px;
 }
+/*----form-----*/
+table#tregister {
+	width:20vw;
+	margin: 5vw 20vw 0 20vw;
+}
+li.form {
+	list-style-type: none;
+}
+
+
 
 /*-----body-----*/
 td {

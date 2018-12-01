@@ -31,15 +31,38 @@
 			</tr>
 		</div>
 	</div>
+	<div class="body">
+		<div class="container">
+			<table id="tregister">
+				<tr>
+					<td class="registerForm">
+						<div>
+							<form action="php/register.php" method="post" enctype="multipart/form-data">
+								<ul>
+									<li class="form">Register</li>
+									<li class="form">First Name: <input type="text" name="fname" id="fname" placeholder="First Name"></li>
+									<li class="form">Last Name: <input type="text" name="lname" id="lname" placeholder="Last Name"></li>
+									<li class="form">Gender: <input type="radio" name="genderm" id="genderm" value="male" checked> Male
+										<input type="radio" name="genderf" id="genderf" value="female"> Female</li>
+									<li class="form">Location: <input type="text" name="location" id="location" placeholder="Location"></li>
+									<li class="form">Username: <input type="text" name="username" id="username" placeholder="Username"></li>
+									<li class="form">Password: <input type="password" name="password" id="password" placeholder="Password"></li>
+									<li class="form">Verify Password:<input type="password" name="password-verify" id="password-verify" placeholder="Verify Password"></li>
+									<li class="form">Avatar: <input type="file" name="avatar" id="avatar"></li>
+									<li class="form"><input type="submit" name="register-submit" id ="register-submit"></li>
+								</ul>
+							</form>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 	<div class="footer">
 		<div class="container">
 			<p>Jace Black - Beau Duinkerken - Joshua Holland</p>
 		</div>
 	</div>
 	
-    <script src="js/circle.js"></script>
-    <script src="js/util.js"></script>
-    <script src="js/square.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>

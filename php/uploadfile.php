@@ -1,15 +1,11 @@
 <?php
 
-// You should have file_uploads = On in C:\xampp\php\php.ini (if you have xampp)
-
-$target_dir = "uploads/"; // you must create this directory in the folder where you have the PHP file
+$target_dir = "../uploads/"; // you must create this directory in the folder where you have the PHP file
 $target_file = $target_dir . basename($_FILES["fileup"]["name"]);
 
 echo "<p>Upload information</p><ul>";
 echo  "<li>Target folder for the upload :". $target_file . "</li>";
 echo  "<li>File name :". basename($_FILES["fileup"]["name"]) . "</li>";
-
-// basename: Returns the base name of the given path
 
 $uploadOk = 1;
 
@@ -31,7 +27,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Verify the file size
-if ($_FILES["fileup"]["size"] > 500000) {
+if ($_FILES["fileup"]["size"] > 1000000) {
     echo "<li>The file is too large.</li>";
     $uploadOk = 0;
 }
