@@ -91,7 +91,9 @@ topLayer.addEventListener('click', function(evt) {
         winText.style.display = "block";
         topLayer.style.pointerEvents = "none";
         calculateTime();
+        levelname--;
         sendScore();
+        levelname++;
         circleShow();
         activeGame = false;
     }
