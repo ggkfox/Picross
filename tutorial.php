@@ -15,10 +15,10 @@
 				<tr>
 				<td id="tLinks">
 					<ul id="links">
-						<li class="nav"><a href ="title.html">Title</a></li>
-						<li class="nav"><a href ="tutorial.html">Tutorial</a></li>
-						<li class="nav"><a href ="index.html">Main</a></li>
-						<li class="nav"><a class="active" href ="cv.html">CV</a></li>
+						<li class="nav"><a href ="title.php">Title</a></li>
+						<li class="nav"><a class="active" href ="tutorial.php">Tutorial</a></li>
+						<li class="nav"><a href ="index.php">Main</a></li>
+						<li class="nav"><a href ="cv.php">CV</a></li>
 					</ul>
 				</td>
 				<td id="tLogin">

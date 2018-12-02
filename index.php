@@ -1,3 +1,12 @@
+<?php
+// Initialize the session
+session_start();
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: login_mysql.php");
+  exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,10 +25,10 @@
 				<tr>
 				<td id="tLinks">
 					<ul id="links">
-						<li class="nav"><a href ="title.html">Title</a></li>
-						<li class="nav"><a href ="tutorial.html">Tutorial</a></li>
-						<li class="nav"><a class="active" href ="index.html">Main</a></li>
-						<li class="nav"><a href ="cv.html">CV</a></li>
+						<li class="nav"><a href ="title.php">Title</a></li>
+						<li class="nav"><a href ="tutorial.php">Tutorial</a></li>
+						<li class="nav"><a class="active" href ="index.php">Main</a></li>
+						<li class="nav"><a href ="cv.php">CV</a></li>
 					</ul>
 				</td>
 				<td id="tLogin">

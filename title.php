@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,18 +19,24 @@
 				<tr>
 				<td id="tLinks">
 					<ul id="links">
-						<li class="nav"><a class="active" href ="title.html">Title</a></li>
-						<li class="nav"><a href ="tutorial.html">Tutorial</a></li>
-						<li class="nav"><a href ="index.html">Main</a></li>
-						<li class="nav"><a href ="cv.html">CV</a></li>
+						<li class="nav"><a class="active" href ="title.php">Title</a></li>
+						<li class="nav"><a href ="tutorial.php">Tutorial</a></li>
+						<li class="nav"><a href ="index.php">Main</a></li>
+						<li class="nav"><a href ="cv.php">CV</a></li>
 					</ul>
 				</td>
 				<td id="tLogin">
+					<form action="php/login.php" method="post" enctype="multipart/form-data">
 					<ul id="login">
 						<li class="nav" class="login"><input type="text" name="username" placeholder="Username"></li>
 						<li class="nav" class="login"><input type="password" name="password" placeholder="Password"></li>
 						<li class="nav" class="login"><button id="loginB">Login</button></li>
 					</ul>
+					<ul id="loggedIn">
+						<li class="nav" class="login">Welcome User</li>
+						<li class="nav" class="login">Insert Avatar Here</li>
+					</ul>
+					</form>
 				</td>
 			</tr>
 		</div>
@@ -40,6 +50,7 @@
 					<form action="php/register.php" method="post" enctype="multipart/form-data">
 						<ul class="form">
 							<li class="form"><span id="picross-title">Picross</span></li>
+							<li class="form"><span id="errorMsg"></span></li>
 							<li class="form"><label for="firstname"></label><input type="text" name="fname" id="fname" class="reg-input" placeholder="First Name"></li>
 							<li class="form"><label for="lastname"></label><input type="text" name="lname" id="lname" class="reg-input" placeholder="Last Name"></li>
 							<li class="form"><label for="gender"></label>
