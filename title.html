@@ -39,9 +39,9 @@
 				<div>
 					<form action="php/register.php" method="post">
 						<ul>
-							<li class="form"><span style="margin-left:85px">Register</span></li>
-							<li class="form"><label for="firstname"></label><input type="text" name="fname" id="fname" placeholder="First Name"></li>
-							<li class="form"><label for="lastname"></label><input type="text" name="lname" id="lname" placeholder="Last Name"></li>
+							<li class="form"><span id="picross-title">Picross</span></li>
+							<li class="form"><label for="firstname"></label><input type="text" name="fname" id="fname" class="reg-input" placeholder="First Name"></li>
+							<li class="form"><label for="lastname"></label><input type="text" name="lname" id="lname" class="reg-input" placeholder="Last Name"></li>
 							<li class="form"><label for="gender"></label>
 							<select class="form" name="gender" id="gender">
 								<option value="m">Male</option>
@@ -49,12 +49,13 @@
 								<option value="o">Other</option>
 							</select>
 							</li>
-							<li class="form"><label for="location"></label><input type="text" name="location" id="location" placeholder="City"></li>
-							<li class="form"><label for="username"></label><input type="text" name="username" id="username" placeholder="Username"></li>
-							<li class="form"><label for="password"></label><input type="password" name="password" id="password" placeholder="Password"></li>
-							<li class="form"><label for="password-verify"></label><input type="password" name="password-verify" id="password-verify" placeholder="Verify Password"></li>
+							<li class="form"><label for="location"></label><input type="text" name="location" id="location" class="reg-input" placeholder="City"></li>
+							<li class="form"><label for="username"></label><input type="text" name="username" id="username" class="reg-input" placeholder="Username"></li>
+							<li class="form"><label for="password"></label><input type="password" name="password" id="password" class="reg-input" placeholder="Password"></li>
+							<li class="form"><label for="password-verify"></label><input type="password" name="password-verify" id="password-verify" class="reg-input" placeholder="Verify Password"></li>
+							<li class="form"><button type ="button" onclick="document.getElementById('avatar').click()" id="button" class="reg-input" >Upload Avatar</button></li>
 							<li class="form"><label for="avatar"></label><input type="file" name="avatar" id="avatar"></li>
-							<li class="form"><input type="submit" name="register-submit" id ="register-submit"></li>
+							<li class="form"><input type="submit" name="register-submit" id="register-submit" value="Register"></li>
 						</ul>
 					</form>
 				</div>

@@ -97,15 +97,63 @@ li a.active{
 /*----form-----*/
 table#tregister {
 	width:25vw;
-	margin: 5vw 20vw 0 20vw;
+	margin: 3vw 20vw 0 20vw;
 	padding: 10px;
-	background-color: grey;
+	background-color: #706B6A;
 }
+
 li.form {
 	list-style-type: none;
 	padding: 10px;
 }
 
+.reg-input {
+	width: 75%;
+	padding: 10px;
+	border: 1px solid;
+}
+
+#picross-title {
+	text-align: center;
+	margin: 5% 20%;
+	font-size: 40px;
+}
+
+#gender {
+	padding: 5px;
+	width: 82.75%;
+	border: 1px solid;
+}
+
+#avatar {
+	display: none;
+}
+
+#button {
+	display: block;
+	width: 83.5%;
+	height: 25px;
+	padding: 2px;
+}
+
+#register-submit {
+	font-weight: bold;
+    background-color: teal;
+    color: white;
+    padding: 14px 0px;
+    margin: 8px 0;
+    border: none;
+	opacity: 0.7;
+    width: 85%;
+	border-radius: 20px;
+	cursor: pointer;
+	-webkit-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+}
+#register-submit:hover{
+	opacity: 1;
+	
+}
 /*-----body-----*/
 td {
 	vertical-align:top;
