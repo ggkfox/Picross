@@ -108,7 +108,7 @@ li.form {
 }
 
 .reg-input {
-	width: 75%;
+	width: 82.5%;
 	padding: 10px;
 	border: 1px solid;
 }
@@ -121,7 +121,7 @@ li.form {
 
 #gender {
 	padding: 5px;
-	width: 82.75%;
+	width: 88%;
 	border: 1px solid;
 }
 
@@ -131,24 +131,33 @@ li.form {
 
 #button {
 	display: block;
-	width: 83.5%;
-	height: 25px;
+	background-color: white;
+	width: 88%;
+	height: 30px;
 	padding: 2px;
+	opacity: 1;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+#button:hover{
+	opacity: 0.8;
+	background-color: rgba(255, 255, 255, 0.452);
+	
 }
 
 #register-submit {
 	font-weight: bold;
     background-color: teal;
     color: white;
-    padding: 14px 0px;
+    padding: 15px 0px;
     margin: 8px 0;
     border: none;
-	opacity: 0.7;
-    width: 85%;
+	opacity: 0.8;
+    width: 90%;
 	border-radius: 20px;
 	cursor: pointer;
-	-webkit-transition-duration: 0.5s;
-	transition-duration: 0.5s;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
 }
 #register-submit:hover{
 	opacity: 1;
