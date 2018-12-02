@@ -68,26 +68,26 @@ if (isset($_POST['register-submit'])) {
                 } else {
                     $uploadOk = 0;
                     $errorMsg = $errorMsg . " File not valid ";
-                    header("Location: ../title.html?error=".$errorMsg);
+                    header("Location: ../title.php?error=".$errorMsg);
                 }
                 if (file_exists($target_file)) {
                     $uploadOk = 0;
-                    $errorMsg = $errorMsg . " File not valid ";
-                    header("Location: ../title.html?error=".$errorMsg);
+                    $errorMsg = $errorMsg . " File Exists ";
+                    header("Location: ../title.php?error=".$errorMsg);
                 }   
                 if ($_FILES["avatar"]["size"] > 1000000) {
                     $uploadOk = 0;
                     $errorMsg = $errorMsg . " File not valid ";
-                    header("Location: ../title.html?error=".$errorMsg);
+                    header("Location: ../title.php?error=".$errorMsg);
                 }
                 if($imageFileType != "jpg" && $imageFileType != "png") {
                     $uploadOk = 0;
                     $errorMsg = $errorMsg . " File not valid ";
-                    header("Location: ../title.html?error=".$errorMsg);
+                    header("Location: ../title.php?error=".$errorMsg);
                 }
                 if ($uploadOk == 0) {
                     $errorMsg = $errorMsg . " File not valid ";
-                    header("Location: ../title.html?error=".$errorMsg);
+                    header("Location: ../title.php?error=".$errorMsg);
                 } 
                 else {
                     if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
@@ -96,19 +96,19 @@ if (isset($_POST['register-submit'])) {
                         mysqli_stmt_bind_param($stmt, "sssssss", $username, $fname, $lname, $hashpass, $gender, $location, $avatar);
                         mysqli_stmt_execute($stmt);
         
-                        header("Location: ../title.html?signup=success");
+                        header("Location: ../title.php?signup=success");
                     } else {
                         $errorMsg = $errorMsg . " File didnt upload ";
-                        header("Location: ../title.html?error=".$errorMsg);
+                        header("Location: ../title.php?error=".$errorMsg);
                     }
                 }
             }
         }
         else {
-            header("Location: ../title.html?error=".$errorMsg);
+            header("Location: ../title.php?error=".$errorMsg);
         }
      }
 }
 else {
-    header("Location: ../title.html");
+    header("Location: ../title.php");
 }

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+	header("Location: ../title.php");
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,13 +30,27 @@
 						<li class="nav"><a href ="cv.php">CV</a></li>
 					</ul>
 				</td>
-				<td id="tLogin">
-					<ul id="login">
-						<li class="nav" class="login"><input type="text" name="username" placeholder="Username"></li>
-						<li class="nav" class="login"><input type="password" name="password" placeholder="Password"></li>
-						<li class="nav" class="login"><button id="loginB">Login</button></li>
-					</ul>
-				</td>
+				<?php if(!isset($_SESSION['username']) || empty($_SESSION['username'])){ ?>
+					<td id="tLogin">
+						<form action="php/login.php" method="post" enctype="multipart/form-data">
+							<ul id="login">
+								<li class="nav" class="login"><input type="text" name="username" placeholder="Username"></li>
+								<li class="nav" class="login"><input type="password" name="password" placeholder="Password"></li>
+								<li class="nav" class="login"><input type="submit" name="login-submit" id="login-submit" value="Login"></li>
+							</ul>
+						</form>
+					</td>
+				<?php } else {?>
+					<td id="tLogout">
+						<form action="php/logout.php" method="post" enctype="multipart/form-data">
+							<ul id="logout">
+								<li class="logout" id="viewUser"><?php echo "Welcome, " . $_SESSION['username']; ?></li>
+								<li class="logout"><input type="submit" name="logout-submit" id="logout-submit" value="Logout"></li>
+								<li class="logout" id="viewAvatar"><img id="avatarImg" src="<?php echo $_SESSION['avatar'];?>"/></li>
+							</ul>
+						</form>
+					</td>
+				<?php }?>
 			</tr>
 		</div>
 	</div>

@@ -54,6 +54,11 @@ ul#login{
 	position: relative;
 	margin: 27px 0;
 }
+ul#logout{
+	display: flex;
+	position: relative;
+	margin: auto;
+}
 
 #tLinks {
 	width:70%;
@@ -61,6 +66,24 @@ ul#login{
 
 #tLogin {
 	width:30%;
+}
+#tLogout {
+	width:30%;
+}
+
+li.logout {
+	list-style-type: none;
+	display: inline;
+}
+
+li#viewUser {
+	margin: 27px 3px 27px 30px;
+	padding: 1px;
+	color: white;
+}
+
+#logout-submit {
+	margin: 27px 10px;
 }
 
 li.nav {
@@ -181,11 +204,16 @@ td {
 }
 
 .ccontainer {
-	width:80%;
+	width:50%;
 }
 
 .statistics {
 	width:20%;
+}
+
+td.statistics {
+	text-align: right;
+
 }
 
 /*-----sliders-----*/

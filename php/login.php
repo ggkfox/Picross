@@ -9,7 +9,7 @@ if (isset($_POST['login-submit'])) {
 
     if(empty($username) || empty($password)) {
         $errorMsg = $errorMsg . " No username or password ";
-        header("Location: ../title.html?error=".$errorMsg);
+        header("Location: ../title.php?error=".$errorMsg);
         exit();
     }
     else {
@@ -32,14 +32,14 @@ if (isset($_POST['login-submit'])) {
                     session_start();
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['username'] = $row['username'];
-                    $_SESSION['avatar'] = $row['avatar'];
-                    header("Location: ../title.html?login=success");
+                    $_SESSION['avatar'] = "uploads/". $row['avatar'];
+                    header("Location: ../title.php?login=success");
                     exit();
                 }
             }
             else {
                 $errorMsg = $errorMsg . " Invalid ";
-                header("Location: ../title.html?error=".$errorMsg);
+                header("Location: ../title.php?error=".$errorMsg);
                 exit();
             }
         }
@@ -48,5 +48,5 @@ if (isset($_POST['login-submit'])) {
 }
 
 else {
-    header("Location: ../title.html");
+    header("Location: ../title.php");
 }
