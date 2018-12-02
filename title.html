@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Picross</title>
 </head>
-<body id="body">
+<body id="body" background="Images/background.jpg">
 
 	<div class="navbar">
 		<div class="container">
@@ -39,21 +39,21 @@
 				<div>
 					<form action="php/register.php" method="post">
 						<ul>
-							<li class="form">Register</li>
-							<li class="form"><label for="firstname">First Name: </label><input type="text" name="fname" id="fname" placeholder="First Name"></li>
-							<li class="form"><label for="lastname">Last Name: </label><input type="text" name="lname" id="lname" placeholder="Last Name"></li>
-							<li class="form"><label for="gender">Gender: </label>
+							<li class="form"><span style="margin-left:85px">Register</span></li>
+							<li class="form"><label for="firstname"></label><input type="text" name="fname" id="fname" placeholder="First Name"></li>
+							<li class="form"><label for="lastname"></label><input type="text" name="lname" id="lname" placeholder="Last Name"></li>
+							<li class="form"><label for="gender"></label>
 							<select class="form" name="gender" id="gender">
-								<option value="male">Male</option>
-								<option value="female">Female</option>
-								<option value="other">Other</option>
+								<option value="m">Male</option>
+								<option value="f">Female</option>
+								<option value="o">Other</option>
 							</select>
 							</li>
-							<li class="form"><label for="location">Location: </label><input type="text" name="location" id="location" placeholder="Location"></li>
-							<li class="form"><label for="username">Username: </label><input type="text" name="username" id="username" placeholder="Username"></li>
-							<li class="form"><label for="password">Password: </label><input type="password" name="password" id="password" placeholder="Password"></li>
-							<li class="form"><label for="password-verify">Verify Password: </label><input type="password" name="password-verify" id="password-verify" placeholder="Verify Password"></li>
-							<li class="form"><label for="avatar">Avatar: </label><input type="file" name="avatar" id="avatar"></li>
+							<li class="form"><label for="location"></label><input type="text" name="location" id="location" placeholder="City"></li>
+							<li class="form"><label for="username"></label><input type="text" name="username" id="username" placeholder="Username"></li>
+							<li class="form"><label for="password"></label><input type="password" name="password" id="password" placeholder="Password"></li>
+							<li class="form"><label for="password-verify"></label><input type="password" name="password-verify" id="password-verify" placeholder="Verify Password"></li>
+							<li class="form"><label for="avatar"></label><input type="file" name="avatar" id="avatar"></li>
 							<li class="form"><input type="submit" name="register-submit" id ="register-submit"></li>
 						</ul>
 					</form>

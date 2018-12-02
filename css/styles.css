@@ -96,14 +96,15 @@ li a.active{
 }
 /*----form-----*/
 table#tregister {
-	width:20vw;
+	width:25vw;
 	margin: 5vw 20vw 0 20vw;
+	padding: 10px;
+	background-color: grey;
 }
 li.form {
 	list-style-type: none;
+	padding: 10px;
 }
-
-
 
 /*-----body-----*/
 td {
