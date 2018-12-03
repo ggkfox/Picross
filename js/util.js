@@ -137,7 +137,7 @@ function drawLayer1(){
             square.show();
             //draw horrizontal lines
             if (y%1 == 0 && y>0) {
-                c1.strokeStyle="teal";
+                c1.strokeStyle="gray";
                 c1.beginPath();
                 c1.moveTo(padding+border*0.3, padding+border+size*y + gap/2);
                 c1.lineTo(padding+windowSize, padding+border+size*y + gap/2);
@@ -145,7 +145,7 @@ function drawLayer1(){
             }
             //draw verticle lines
             if (x%1 == 0 && x>0) {
-                c1.strokeStyle="teal";
+                c1.strokeStyle="gray";
                 c1.beginPath();
                 c1.moveTo(padding+border+size*x + gap/2, padding+border*0.3);
                 c1.lineTo(padding+border+size*x + gap/2, padding+windowSize);
