@@ -1,5 +1,6 @@
 var htmlScoreOrder = document.getElementById('scoreOrder');
 var username = document.getElementById('hiddenUsername').innerHTML;
+var winText = document.getElementById('win');;
 var correctTiles = 0;
 var levelname = 1;
 var sort =  0;
@@ -352,6 +353,7 @@ function sendScore() {
     var nonmis = nonspace-mistakes;
     var score = (Math.max(nonmis,0))/nonspace;
     var errors = mistakes;
+    winText.textContent = " You Win!!! "+" Time="+duration+"s Score="+score;
     xhttp = new XMLHttpRequest();
     xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
     xhttp.send();

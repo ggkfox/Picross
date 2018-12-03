@@ -60,9 +60,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<table>
 			<tr>
 				<td class="controls">
-					<div id="win">
-						<h1>You Win!!!</h1>
-					</div>
+					<h3 id="win"></h3>
 					<div>
 						<h3 id="h3GridSize">Grid Size: 7</h3>
 							<div>
