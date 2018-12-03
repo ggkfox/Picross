@@ -77,12 +77,12 @@ if (isset($_POST['register-submit'])) {
                 }   
                 if ($_FILES["avatar"]["size"] > 1000000) {
                     $uploadOk = 0;
-                    $errorMsg = $errorMsg . " File not valid ";
+                    $errorMsg = $errorMsg . " File too large ";
                     header("Location: ../title.php?error=".$errorMsg);
                 }
                 if($imageFileType != "jpg" && $imageFileType != "png") {
                     $uploadOk = 0;
-                    $errorMsg = $errorMsg . " File not valid ";
+                    $errorMsg = $errorMsg . " File not jpg/png ";
                     header("Location: ../title.php?error=".$errorMsg);
                 }
                 if ($uploadOk == 0) {
@@ -96,7 +96,7 @@ if (isset($_POST['register-submit'])) {
                         mysqli_stmt_bind_param($stmt, "sssssss", $username, $fname, $lname, $hashpass, $gender, $location, $avatar);
                         mysqli_stmt_execute($stmt);
         
-                        header("Location: ../title.php?signup=success");
+                        header("Location: ../title.php?signup=Account Created");
                     } else {
                         $errorMsg = $errorMsg . " File didnt upload ";
                         header("Location: ../title.php?error=".$errorMsg);

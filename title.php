@@ -58,7 +58,7 @@ session_start();
 					<form action="php/register.php" method="post" enctype="multipart/form-data">
 						<ul class="form">
 							<li class="form"><span id="picross-title">Picross</span></li>
-							<li class="form"><span id="errorMsg"></span></li>
+							<li class="form"><span id="errorMsg"><?php if(isset($_GET['error'])) echo $_GET['error']; if(isset($_GET['signup'])) echo $_GET['signup']; ?></span></li>
 							<li class="form"><label for="firstname"></label><input type="text" name="fname" id="fname" class="reg-input" placeholder="First Name"></li>
 							<li class="form"><label for="lastname"></label><input type="text" name="lname" id="lname" class="reg-input" placeholder="Last Name"></li>
 							<li class="form"><label for="gender"></label>
@@ -73,8 +73,8 @@ session_start();
 							<li class="form"><label for="password"></label><input type="password" name="password" id="password" class="reg-input" placeholder="Password"></li>
 							<li class="form"><label for="password-verify"></label><input type="password" name="password-verify" id="password-verify" class="reg-input" placeholder="Verify Password"></li>
 							<li class="form"><button type ="button" onclick="document.getElementById('avatar').click()" id="button" class="reg-input" >Upload Avatar</button></li>
-							<li class="form"><label for="avatar"></label><input type="file" name="avatar" id="avatar"></li>
 							<li class="form"><input type="submit" name="register-submit" id="register-submit" value="Register"></li>
+							<li class="form"><label for="avatar"></label><input type="file" name="avatar" id="avatar"></li>
 						</ul>
 					</form>
 				</div>
