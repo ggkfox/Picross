@@ -26,7 +26,7 @@ else {
     echo "<h3>Sort and Asc not bound</h3>";
 }
 
-$msg = "<table><tr><td>Username</td><td>Score</td><td>Errors</td><td>Duration</td></tr>";
+$msg = "<table id=\"tscore\"><tr><td>Username</td><td>Score</td><td>Errors</td><td>Duration</td></tr>";
 
 for ($i = 0; $i < 5; $i++) {
     if ($row = $result->fetch_assoc()) {
@@ -35,6 +35,14 @@ for ($i = 0; $i < 5; $i++) {
         $msg = $msg . "<td>" . $row['score'] . "</td>";
         $msg = $msg . "<td>" . $row['errors'] . "</td>";
         $msg = $msg . "<td>" . $row['duration'] . "</td>";
+        $msg = $msg . "</tr>";
+    }
+    else {
+        $msg = $msg . "<tr>";
+        $msg = $msg . "<td>" . "No" . "</td>";
+        $msg = $msg . "<td>" . "Score" . "</td>";
+        $msg = $msg . "<td>" . "In" . "</td>";
+        $msg = $msg . "<td>" . "Database" . "</td>";
         $msg = $msg . "</tr>";
     }
 } 

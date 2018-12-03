@@ -1,5 +1,6 @@
 canvas {
 	position: absolute;
+	width:585px;
 }
 
 #layer1 {
@@ -48,6 +49,7 @@ ul#links{
 	display: flex;
 	position: relative;
 	margin: 27px 0;
+	width:100%;
 }
 ul#login{
 	display: flex;
@@ -55,40 +57,48 @@ ul#login{
 	margin: 27px 0;
 }
 ul#logout{
-	display: flex;
-	position: relative;
-	margin: auto;
+	margin: 0;
+	padding: 0;
 }
 
 #tLinks {
-	width:70%;
+	width:50%;
 }
 
 #tLogin {
-	width:30%;
+	width:20%;
 }
 #tLogout {
-	width:30%;
+	width:20%;
 }
 
 li.logout {
 	list-style-type: none;
-	display: inline;
+	display: table-cell;
+	vertical-align: middle;
+	margin:0;
 }
 
 li#viewUser {
-	margin: 27px 3px 27px 30px;
+	margin:0;
 	padding: 1px;
 	color: white;
+	text-align:center;
+	vertical-align:middle;
+}
+
+#avatarImg {
+	width:75px;
+	height:75px;
 }
 
 #logout-submit {
-	margin: 27px 10px;
+	margin:0;
 }
 
 li.nav {
 	list-style-type: none;
-	display: inline;
+	display: inline-block;
 }
 
 li a {
@@ -110,41 +120,62 @@ li a.active{
 /*----form-----*/
 table#tregister {
 	display:flex;
-	width:25vw;
-	margin: 3vw auto;
-	background-color: #706B6A;
+	width:40%;
+	margin: 5% auto;
+
 }
 ul.form {
-	padding:auto;
-	margin:auto;
+	padding:0;
+	margin:0;
 }
 
 li.form {
-	display:flex;
+	display:inline-block;
 	list-style-type: none;
-	padding: 10px 2.5vw;
+	padding: 2%;
 	margin: auto;
-	width:100%;
+	width:95%;
 }
 
 .reg-input {
-	width: 100%;
-	padding: 10px;
+	width: 96%;
+	padding: 2%;
 	margin: auto;
-	border: 1px solid;
+	border: none;
+	background-color: rgba(255, 208, 0, 0.747);
+	color:white;
+	border-radius: 10px;
 }
 
 #picross-title {
-	text-align: center;
-	margin: auto;
-	font-size: 60px;
+	display: inline-block;
+	margin:auto;
+	width:90%;
+	text-align:center;
+	padding: 0% 5% 0% 5%;
+	color:white;
+	font-size: 6vw;
+}
+
+select#gender {
+	width:100%;
+	margin:auto;
+	background-color: rgba(255, 208, 0, 0.747);
+	color:white;
+	border: none;
+}
+
+::placeholder {
+	color:white;
 }
 
 #gender {
-	padding: 5px;
+	padding: 2% 0% 2% 0%;
 	margin: auto;
 	width: 100%;
-	border: 1px solid;
+	border-radius: 10px;
+	background-color: rgba(255, 208, 0, 0.747);
+	color:white;
 }
 
 #avatar {
@@ -152,19 +183,21 @@ li.form {
 }
 
 #button {
-	display: block;
-	background-color: white;
-	width: 100%;
-	height: 30px;
-	padding: 2px;
+	display: inline-block;
+	background-color: rgba(255, 208, 0, 0.747);
+	color:white;
+	width: 99%;
+	height: 40px;
+	padding: 2%;
+	border: none;
 	opacity: 1;
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
+	text-align:left;
 }
 #button:hover{
 
 	opacity: 0.8;
-	background-color: rgba(255, 255, 255, 0.452);
 	
 }
 #register-submit:hover{
@@ -173,14 +206,14 @@ li.form {
 }
 #register-submit {
 	font-weight: bold;
-    background-color: teal;
+	background-color: rgba(0, 128, 128, 0.747);
     color: white;
     padding: 15px 0px;
     margin: 0;
     border: none;
 	opacity: 0.8;
     width: 100%;
-	border-radius: 30px;
+	border-radius: 10px;
 	cursor: pointer;
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
@@ -195,12 +228,9 @@ td {
 	display: none;
 }
 
-#demo {
-	display: none;
-}
-
 .controls {
 	width:20%;
+	
 }
 
 .ccontainer {
@@ -208,12 +238,16 @@ td {
 }
 
 .statistics {
-	width:20%;
+	width:10%;
 }
 
 td.statistics {
-	text-align: right;
+	text-align: center;
 
+}
+table#tscore {
+	text-align:center;
+	display:inline-block;
 }
 
 /*-----sliders-----*/

@@ -99,8 +99,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 				</td>
 				<td class="statistics">
 					<div>
-						<h3 id="timer"> Time: 0 00</h3>
-						<h3 id="mistakes">Mistakes: 0</h3>
 						<h3 id="leaderboard">Leaderboard</h3>
 						<h3 id="scores"></h3>
 						<select id="scoreOrder">
@@ -109,6 +107,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 							<option value ="durationAsc">By Duration Ascending</option>
 							<option value ="durationDesc">By Duration Descending</option>
 						</select>
+						<h3 id="timer"> Time: 0 00</h3>
+						<h3 id="mistakes">Mistakes: 0</h3>
+						<h3 id="remaining">Remaining Tiles: 00</h3>
 					</div>
 				</td>
 			</tr>
@@ -120,9 +121,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<p>Jace Black - Beau Duinkerken - Joshua Holland</p>
 		</div>
 	</div>
-	<h1 id="demo"></h1>
-	
-	
+
     <script src="js/circle.js"></script>
     <script src="js/util.js"></script>
     <script src="js/square.js"></script>

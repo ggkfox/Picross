@@ -17,6 +17,7 @@ var htmlmode = document.getElementById('mode');
 var htmlTimer = document.getElementById('timer');
 var htmlLeaderboard = document.getElementById('leaderboard');
 var htmlScores = document.getElementById('scores');
+var htmlTilesRemaining = document.getElementById('remaining');
 var htmlScoreOrder = document.getElementById('scoreOrder');
 
 //-----------Configuration [adjustable by user]
@@ -77,6 +78,7 @@ topLayer.addEventListener('click', function(evt) {
             player[coordinates.y][coordinates.x] = 1;
             if (isCorrect(coordinates.x, coordinates.y)) {
                 tilesRemaining--;
+                htmlTilesRemaining.innerHTML="Remaining Tiles: " + tilesRemaining;
                 activeGame = true;
             }
             else {
@@ -129,6 +131,7 @@ htmlBackgroundColorSlider.addEventListener('input', function(){
     htmlTimer.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     htmlLeaderboard.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     htmlScores.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
+    htmlTilesRemaining.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     drawLayer1();
 }, false)
 

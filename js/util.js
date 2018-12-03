@@ -36,6 +36,7 @@ function countRemaining(complete) {
             if (complete[y][x]==1) tilesRemaining++;
         }
     }
+    htmlTilesRemaining.innerHTML="Remaining Tiles: " + tilesRemaining;
 }
 
 function configureCanvas() {
@@ -52,6 +53,7 @@ function configureCanvas() {
     currTimeM = 0;
     currTimeS = 0;
     tilesRemaining = 0;
+    htmlTilesRemaining.innerHTML="Remaining Tiles: " + tilesRemaining;
     mistakes = 0;
     circles = [];
     complete = generateArray();
