@@ -68,12 +68,12 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 							<div>
 								<p><input type="range" min="3" max="20" value="7" class="slider" id="gridSize"></p>
 							</div>
-						<h3 id="h3BackgroundColorT">Background Color:</h3>
+						<h3 id="h3BackgroundColorT">Grid Color:</h3>
 						<h3 id="h3BackgroundColor">Snow</h3>
 							<div>
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="gridColor"></p>
 							</div>
-						<h3 id="h3BlockColorT">Block Color:</h3>
+						<h3 id="h3BlockColorT">Correct Color:</h3>
 						<h3 id="h3BlockColor">Teal</h3>
 							<div>
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="blockColor"></p>
