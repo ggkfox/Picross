@@ -1,4 +1,5 @@
 var htmlScoreOrder = document.getElementById('scoreOrder');
+var username = document.getElementById('hiddenUsername').innerHTML;
 var levelname = 1;
 var sort =  0;
 var asc = 0;
@@ -343,12 +344,10 @@ function getScores() {
 
 function sendScore() {
     var xhttp;
-    var username = "temp";
     var size = n;
     var duration = currTimeM * 60 + currTimeS;
     var score = 5; // score formula
     var errors = mistakes;
-
     xhttp = new XMLHttpRequest();
     xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
     xhttp.send();

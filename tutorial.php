@@ -60,7 +60,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<tr>
 			<td class="tdvideo">
 				<div>
-				<video id="video1" controls>
+				<video id="video1" width="1000" controls>
    					<source src="video/play_picross.mp4" type="video/mp4">
 
  				</video>

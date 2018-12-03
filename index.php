@@ -110,6 +110,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 						<h3 id="timer"> Time: 0 00</h3>
 						<h3 id="mistakes">Mistakes: 0</h3>
 						<h3 id="remaining">Remaining Tiles: 00</h3>
+						<h3 style="display:none" id="hiddenUsername"><?php echo $_SESSION['username'];?></h3>
 					</div>
 				</td>
 			</tr>
@@ -121,7 +122,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<p>Jace Black - Beau Duinkerken - Joshua Holland</p>
 		</div>
 	</div>
-
     <script src="js/circle.js"></script>
     <script src="js/util.js"></script>
     <script src="js/square.js"></script>

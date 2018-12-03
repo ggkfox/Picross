@@ -1,6 +1,6 @@
 canvas {
 	position: absolute;
-	width:585px;
+	width:550px;
 }
 
 #layer1 {
@@ -141,7 +141,7 @@ li.form {
 
 .reg-input {
 	width: 96%;
-	padding: 2%;
+	padding: 1.8% 2%;
 	margin: auto;
 	border: none;
 	background-color: rgba(255, 208, 0, 0.747);
@@ -233,8 +233,8 @@ select#gender {
 
 /*-----body-----*/
 video#video1 {
-	margin: 0 auto;
-	padding: 2% 0;
+	margin: 1% 5% 1% 5%;
+	padding: 0;
 }
 
 td {
@@ -252,7 +252,7 @@ td {
 }
 
 .ccontainer {
-	width:50%;
+	width:70%;
 }
 
 .statistics {
