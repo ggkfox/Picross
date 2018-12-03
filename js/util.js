@@ -348,8 +348,9 @@ function sendScore() {
     var xhttp;
     var size = n;
     var duration = currTimeM * 60 + currTimeS;
-    var nonspace = (size*size)-correctTiles;
-    var score = (math.max(nonspace-mistakes,0))/nonspace;
+    var nonspace = (n*n)-correctTiles;
+    var nonmis = nonspace-mistakes;
+    var score = (Math.max(nonmis,0))/nonspace;
     var errors = mistakes;
     xhttp = new XMLHttpRequest();
     xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
