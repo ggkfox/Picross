@@ -1,5 +1,6 @@
 var htmlScoreOrder = document.getElementById('scoreOrder');
 var username = document.getElementById('hiddenUsername').innerHTML;
+var correctTiles = 0;
 var levelname = 1;
 var sort =  0;
 var asc = 0;
@@ -37,6 +38,7 @@ function countRemaining(complete) {
             if (complete[y][x]==1) tilesRemaining++;
         }
     }
+    correctTiles = tilesRemaining;
     htmlTilesRemaining.innerHTML="Remaining Tiles: " + tilesRemaining;
 }
 
@@ -346,7 +348,8 @@ function sendScore() {
     var xhttp;
     var size = n;
     var duration = currTimeM * 60 + currTimeS;
-    var score = 5; // score formula
+    var nonspace = (size*size)-correctTiles;
+    var score = (math.max(nonspace-mistakes,0))/nonspace;
     var errors = mistakes;
     xhttp = new XMLHttpRequest();
     xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
