@@ -136,14 +136,16 @@ function drawLayer1(){
             var square = new Square(c1, x, y, baseColor);
             square.show();
             //draw horrizontal lines
-            if (y%5 == 0 && y > 0) {
+            if (y%1 == 0 && y>0) {
+                c1.strokeStyle="teal";
                 c1.beginPath();
                 c1.moveTo(padding+border*0.3, padding+border+size*y + gap/2);
                 c1.lineTo(padding+windowSize, padding+border+size*y + gap/2);
                 c1.stroke();
             }
             //draw verticle lines
-            if (x%5 == 0 && x > 0) {
+            if (x%1 == 0 && x>0) {
+                c1.strokeStyle="teal";
                 c1.beginPath();
                 c1.moveTo(padding+border+size*x + gap/2, padding+border*0.3);
                 c1.lineTo(padding+border+size*x + gap/2, padding+windowSize);

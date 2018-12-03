@@ -175,7 +175,7 @@ select#gender {
 	border: none;
 }
 
-::placeholder {
+.reg-input::placeholder {
 	color:white;
 }
 
@@ -232,6 +232,7 @@ select#gender {
 /*-----body-----*/
 td {
 	vertical-align:top;
+	color:snow;
 }
 
 #win {

@@ -26,7 +26,7 @@ var n = null; //number of tiles X and Y
 var border = (Math.round(n/2)+1)*17; //space for numbers
 var size = (windowSize-border)/n; //size of each tile
 var correctColor = "lightgreen";
-var fontColor = "black"; //grid numbers
+var fontColor = "white"; //grid numbers
 var startTime = 0;
 var currTimeM = 0;
 var currTimeS = 0; 
@@ -41,13 +41,13 @@ var player;
 var grid = {"border": ["2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "10", "10", "11", "11", "12", "12", "13"],
 			"correctColor" : ["navy", "aqua", "orange", "yellow", "lime", "teal", "white", "saddlebrown", "purple", "olive"],
 			"backgroundColor" : ["powderblue", "rosybrown", "lavender", "lightcyan", "thistle", "snow", "cornsilk", "gainsboro", "darkslategrey", "black"],
-			"fontColor" : ["black", "black", "black", "black",  "black", "black", "black", "black", "black", "white"]}
-var gap = 4; //gap between tiles (this number should be half of what you with the gap to be)
+			"fontColor" : ["white", "white", "white", "white",  "white", "white", "white", "white", "white", "white"]}
+var gap = 5; //gap between tiles (this number should be half of what you with the gap to be)
 var padding = 5; //space around game on all sides
 var textDistance = 20; //text distance away from first tile
 var font = "17px Arial"; //Font for Grid Numbers
-var baseColor = "grey";
-var wrongColor = "black";
+var baseColor = "snow";
+var wrongColor = "grey";
 var ballColors = ["red", "blue", "lightgreen", "yellow", "pink"]
 var gravity = 0.4; //gravity enacted on the balls
 var friction = .7; //how quickly the balls stop rolling/bouncing;
@@ -119,19 +119,10 @@ htmlSizeSlider.addEventListener('input', function(evt){
 
 htmlBackgroundColorSlider.addEventListener('input', function(){
     htmlBackgroundColor.textContent = grid.backgroundColor[htmlBackgroundColorSlider.value];
+    baseColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
 	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
-    BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
-    htmlGridSize.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
-    htmlBackgroundColor.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     htmlBackgroundColorT.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
-    htmlBlockColor.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     htmlBlockColorT.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
-    htmlMistakes.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
-    htmlmode.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
-    htmlTimer.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
-    htmlLeaderboard.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
-    htmlScores.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
-    htmlTilesRemaining.style.color = grid.fontColor[htmlBackgroundColorSlider.value];
     drawLayer1();
 }, false)
 

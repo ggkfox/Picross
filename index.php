@@ -16,7 +16,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <link rel="stylesheet" href="css/styles.css">
     <title>Picross</title>
 </head>
-<body id="body">
+<body id="body" background="Images/background.jpg">
 
 	<div class="navbar">
 		<div class="container">
