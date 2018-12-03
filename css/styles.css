@@ -232,6 +232,11 @@ select#gender {
 }
 
 /*-----body-----*/
+video#video1 {
+	margin: 0 auto;
+	padding: 2% 0;
+}
+
 td {
 	vertical-align:top;
 	color:snow;

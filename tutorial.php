@@ -54,6 +54,22 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			</tr>
 		</div>
 	</div>
+	<div class="body">
+		<div class="container">
+			<table id="tvideo">
+			<tr>
+			<td class="tdvideo">
+				<div>
+				<video id="video1" controls>
+   					<source src="video/play_picross.mp4" type="video/mp4">
+
+ 				</video>
+				</div>
+			</td>
+			</tr>
+			</table>
+		</div>
+	</div>
 	<div class="footer">
 		<div class="container">
 			<p>Jace Black - Beau Duinkerken - Joshua Holland</p>
