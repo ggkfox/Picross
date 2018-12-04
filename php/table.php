@@ -54,7 +54,7 @@ if ($query === TRUE) {
 	echo "<h3>level table NOT created</h3>"; 
 }
 
-for ($n = 0; $n <= 19; $n++) {
+for ($n = 0; $n <= 19; $n++) { //generates levels
   $position0 = array(array());
   for ($m = 1; $m <= 10; $m++) {
       for ($i = 0; $i <= $n; $i++) {
@@ -69,6 +69,47 @@ for ($n = 0; $n <= 19; $n++) {
   $n--;
   }
 }
+
+for ($n = 0; $n <= 19; $n++) { // generate scores (might be impossible to obtain normally)
+    for ($m = 1; $m <= 10; $m++) {
+        for ($i = 1; $i <= 5; $i++) {
+            $score = mt_rand(0,101)/100;
+            $duration = mt_rand(0,61);
+            $errors = mt_rand(0,3);
+            $userVal = mt_rand(0,30);
+            if ($userVal >= 1 && $userVal < 10) {
+                $user = 'UserOne';
+            }
+            if ($userVal >= 11 && $userVal < 20) {
+                $user = 'UserTwo';
+            }
+            if ($userVal >= 21 && $userVal < 30) {
+                $user = 'UserThree';
+            }
+            $n++;
+            $new_score = "INSERT INTO scores (username,levelsize,levelname,duration,score,errors) VALUES ('$user','$n','$m','$duration', '$score', '$errors');";
+            $result = $conn->query($new_score);
+            $n--;
+        }
+    }
+  }
+
+//generate 3 users
+$hashpass = password_hash('123', PASSWORD_DEFAULT); 
+$new_user = "INSERT INTO users (username,fname,lname,password,gender,location,avatar) VALUES ('UserOne', 'UserOne', 'NameOne', '$hashpass', 'm', 'fresno', '1.png');";
+$result = $conn->query($new_user);
+
+$hashpass = password_hash('456', PASSWORD_DEFAULT);
+$new_user = "INSERT INTO users (username,fname,lname,password,gender,location,avatar) VALUES ('UserTwo', 'UserTwo', 'NameTwo', '$hashpass', 'f', 'clovis', '2.png');";
+$result = $conn->query($new_user);
+
+$hashpass = password_hash('789', PASSWORD_DEFAULT);
+$new_user = "INSERT INTO users (username,fname,lname,password,gender,location,avatar) VALUES ('UserThree', 'UserThree', 'NameThree', '$hashpass', 'o', 'clovis', '3.png');";
+$result = $conn->query($new_user);
+
+
+
+
 
 $conn->close();
 
