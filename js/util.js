@@ -1,3 +1,11 @@
+var htmlScoreOrder = document.getElementById('scoreOrder');
+var username = document.getElementById('hiddenUsername').innerHTML;
+var winText = document.getElementById('win');;
+var correctTiles = 0;
+var levelname = 1;
+var sort =  0;
+var asc = 0;
+
 function arrayToString(arr) {
     str = "";
     for (var i = 0; i < n; i++) {
@@ -23,7 +31,22 @@ function stringToArray(str) {
     return arr;
 }
 
+function countRemaining(complete) {
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j < n; j++) {
+            var x = j;
+            var y = i;
+            if (complete[y][x]==1) tilesRemaining++;
+        }
+    }
+    correctTiles = tilesRemaining;
+    htmlTilesRemaining.innerHTML="Remaining Tiles: " + tilesRemaining;
+}
+
 function configureCanvas() {
+    if (n != htmlSizeSlider.value) {
+        levelname = 1;
+    }
 	n = htmlSizeSlider.value;
 	border = (Math.round(n/2)+1)*17;
 	correctColor = grid.correctColor[htmlBlockColorSlider.value];
@@ -34,12 +57,22 @@ function configureCanvas() {
     currTimeM = 0;
     currTimeS = 0;
     tilesRemaining = 0;
+    htmlTilesRemaining.innerHTML="Remaining Tiles: " + tilesRemaining;
     mistakes = 0;
     circles = [];
-    complete = randomArray();
+    complete = generateArray();
+    countRemaining(complete);
     player = blankArray();
+    getScores();
     drawLayer1();
     drawLayer2();
+
+    if(levelname != 10) {
+        levelname++;
+    }
+    else {
+        levelname=1;
+    }
 }
 
 function blankArray(){
@@ -55,17 +88,46 @@ function blankArray(){
     return arr;
 }
 
-function randomArray(){
-    var arr = new Array(n); //arr[horrizontal][vertical]
-    for (var i = 0; i < n; i++) {
-        arr[i] = new Array(n);
-        for (var j = 0; j < n; j++) {
-            var x = j;
-            var y = i;
-            arr[y][x] = Math.floor((Math.random()*10)%2);
-            if (arr[y][x]==1) tilesRemaining++;
+function generateArray(){
+
+    if (document.getElementById("gameMode").value == "arcade") {
+        var arr = [];
+        var xhttp;
+        var size = n;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                arr = JSON.parse(JSON.parse(this.responseText));
+            }
+        };
+        xhttp.open("GET", "php/getBoard.php?size="+size+"&levelname="+levelname, false);
+        xhttp.send();
+    }
+    else if (document.getElementById("gameMode").value == "time") {
+        var arr = [];
+        var xhttp;
+        var size = n;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                arr = JSON.parse(JSON.parse(this.responseText));
+            }
+        };
+        xhttp.open("GET", "php/getBoard.php?size="+size+"&levelname="+levelname, false);
+        xhttp.send();
+    }
+    else {
+        var arr = new Array(n);
+        for (var i = 0; i < n; i++) {
+            arr[i] = new Array(n);
+            for (var j = 0; j < n; j++) {
+                var x = j;
+                var y = i;
+                arr[y][x] = Math.floor((Math.random()*10)%2);
+            }
         }
     }
+
     return arr;
 }
 
@@ -78,14 +140,16 @@ function drawLayer1(){
             var square = new Square(c1, x, y, baseColor);
             square.show();
             //draw horrizontal lines
-            if (y%5 == 0 && y > 0) {
+            if (y%1 == 0 && y>0) {
+                c1.strokeStyle="gray";
                 c1.beginPath();
                 c1.moveTo(padding+border*0.3, padding+border+size*y + gap/2);
                 c1.lineTo(padding+windowSize, padding+border+size*y + gap/2);
                 c1.stroke();
             }
             //draw verticle lines
-            if (x%5 == 0 && x > 0) {
+            if (x%1 == 0 && x>0) {
+                c1.strokeStyle="gray";
                 c1.beginPath();
                 c1.moveTo(padding+border+size*x + gap/2, padding+border*0.3);
                 c1.lineTo(padding+border+size*x + gap/2, padding+windowSize);
@@ -202,7 +266,7 @@ function checkWin(){
 function circleShow(){
     if (tilesRemaining>0) return;
     for (var i = 0; i < 15; i++) {
-        circles.push(new Circle(300, 100, Math.floor(Math.random()*1000)%ballColors.length));
+        circles.push(new Circle((windowSize-border)/2+border+padding, (windowSize-border)/2+border+padding, Math.floor(Math.random()*1000)%ballColors.length));
     }
     setTimeout(function(){circleShow();}, 3000);
 }
@@ -229,7 +293,6 @@ function drawBalls(){
         circle.x += circle.dx;
         circle.y += circle.dy;
     }
-    //winText.style.color = ballColors[(Math.floor(Math.random()*1000)%ballColors.length)];
     requestAnimationFrame(drawBalls);
 }
 
@@ -249,4 +312,49 @@ function calculateTime() {
         htmlTimer.textContent = "Time: 0 00";
     }
     setTimeout(calculateTime, 1000);
+}
+
+function getScores() {
+    var xhttp;
+    var size = n;
+    //console.log(levelname);
+    if (htmlScoreOrder.value == "scoreDesc") {
+        sort =  0;
+        asc = 1;
+    }
+    else if (htmlScoreOrder.value == "durationAsc") {
+        sort =  1;
+        asc = 0;
+    }
+    else if (htmlScoreOrder.value == "durationDesc") {
+        sort =  1;
+        asc = 1;        
+    }
+    else {
+        sort =  0;
+        asc = 0;
+    }
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var message = JSON.parse(this.responseText);
+            htmlScores.innerHTML = message;
+        }
+    };
+    xhttp.open("GET", "php/getScores.php?size="+size+"&levelname="+levelname+"&sort="+sort+"&asc="+asc, true);
+    xhttp.send();
+}
+
+function sendScore() {
+    var xhttp;
+    var size = n;
+    var duration = currTimeM * 60 + currTimeS;
+    var nonspace = (n*n)-correctTiles;
+    var nonmis = nonspace-mistakes;
+    var score = (Math.max(nonmis,0))/nonspace;
+    var errors = mistakes;
+    winText.textContent = " You Win!!! "+" Time="+duration+"s Score="+score;
+    xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
+    xhttp.send();
 }
