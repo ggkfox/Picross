@@ -50,3 +50,5 @@ if ($query === TRUE) {
 } else {
 	echo "<h3>level table NOT created</h3>"; 
 }
+
+?>
