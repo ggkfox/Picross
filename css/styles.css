@@ -303,6 +303,21 @@ table#tscore {
     cursor: pointer;
 }
 
+/*----cv-----*/
+table#tCvBox {
+	display:flex;
+	width: 25%;
+	margin: 0 auto;
+	margin-top: 35px;
+	padding: 100px;
+	background: rgba(0,0,0,0.4);
+}
+.cv1 {
+	width: 214px;
+	height: 214px;
+	border-radius: 50%;
+}
+
 /*-----footer-----*/
 .footer {
 	position: fixed;

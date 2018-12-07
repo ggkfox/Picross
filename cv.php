@@ -18,6 +18,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 </head>
 <body id="body" background="Images/background.jpg">
 
+
 	<div class="navbar">
 		<div class="container">
 			<table>
@@ -54,11 +55,30 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			</tr>
 		</div>
 	</div>
+	
+	<div class="body">
+		<div class="container">
+		<div>
+			<table id="tCvBox">
+			<tr>
+			<td class="tdCvBox">
+			<img src="Images/cv1jpg.jpg" class="cv1">
+				<h1>Jace Black</h1>
+				<h5>SCRUM Master</h5>
+				<p>Jace is my name and code is my game</p>
+			</td>
+			</tr>
+			</table>
+		</div>
+		</div>
+	</div>
+
 	<div class="footer">
 		<div class="container">
 			<p>Jace Black - Beau Duinkerken - Joshua Holland</p>
 		</div>
 	</div>
+	
 
 </body>
 </html>
