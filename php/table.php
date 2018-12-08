@@ -7,9 +7,10 @@ $tbl_users = "CREATE TABLE IF NOT EXISTS users (
                fname VARCHAR(12) NOT NULL,
                lname VARCHAR(20) NOT NULL,
                password VARCHAR(255) NOT NULL,
+               age INT(2) NOT NULL,
                gender ENUM('m','f','o') NOT NULL,
-               location VARCHAR(255) NULL,
-               avatar VARCHAR(255) NULL,
+               location VARCHAR(255) NOT NULL,
+               avatar VARCHAR(255) NOT NULL,
                PRIMARY KEY (id),
                UNIQUE KEY username (username)
             )";
@@ -88,6 +89,9 @@ for ($n = 0; $n <= 19; $n++) { // generate scores (might be impossible to obtain
             if ($userVal >= 21 && $userVal < 30) {
                 $user = 'UserThree';
             }
+            else {
+                $user = 'UserOne';
+            }
             $n++;
             $new_score = "INSERT INTO scores (username,levelsize,levelname,duration,score,errors) VALUES ('$user','$n','$m','$duration', '$score', '$errors');";
             $result = $conn->query($new_score);
@@ -98,15 +102,15 @@ for ($n = 0; $n <= 19; $n++) { // generate scores (might be impossible to obtain
 
 //generate 3 users
 $hashpass = password_hash('123', PASSWORD_DEFAULT); 
-$new_user = "INSERT INTO users (username,fname,lname,password,gender,location,avatar) VALUES ('UserOne', 'UserOne', 'NameOne', '$hashpass', 'm', 'fresno', '1.png');";
+$new_user = "INSERT INTO users (username,fname,lname,password,age,gender,location,avatar) VALUES ('UserOne', 'UserOne', 'NameOne', '$hashpass','1', 'm', 'fresno', '1.png');";
 $result = $conn->query($new_user);
 
 $hashpass = password_hash('456', PASSWORD_DEFAULT);
-$new_user = "INSERT INTO users (username,fname,lname,password,gender,location,avatar) VALUES ('UserTwo', 'UserTwo', 'NameTwo', '$hashpass', 'f', 'clovis', '2.png');";
+$new_user = "INSERT INTO users (username,fname,lname,password,age,gender,location,avatar) VALUES ('UserTwo', 'UserTwo', 'NameTwo', '$hashpass','2', 'f', 'clovis', '2.png');";
 $result = $conn->query($new_user);
 
 $hashpass = password_hash('789', PASSWORD_DEFAULT);
-$new_user = "INSERT INTO users (username,fname,lname,password,gender,location,avatar) VALUES ('UserThree', 'UserThree', 'NameThree', '$hashpass', 'o', 'clovis', '3.png');";
+$new_user = "INSERT INTO users (username,fname,lname,password,age,gender,location,avatar) VALUES ('UserThree', 'UserThree', 'NameThree', '$hashpass','3', 'o', 'clovis', '3.png');";
 $result = $conn->query($new_user);
 
 

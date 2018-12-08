@@ -61,8 +61,10 @@ session_start();
 							<li class="form"><span id="errorMsg"><?php if(isset($_GET['error'])) echo $_GET['error']; if(isset($_GET['signup'])) echo $_GET['signup']; ?></span></li>
 							<li class="form"><label for="firstname"></label><input type="text" name="fname" id="fname" class="reg-input" placeholder="First Name"></li>
 							<li class="form"><label for="lastname"></label><input type="text" name="lname" id="lname" class="reg-input" placeholder="Last Name"></li>
+							<li class="form"><label for="age"></label><input type="text" name="age" id="age" class="reg-input" placeholder="Age"></li>
 							<li class="form"><label for="gender"></label>
 							<select class="form" name="gender" id="gender">
+								<option value="" disabled selected hidden>Gender</option>
 								<option value="m">Male</option>
 								<option value="f">Female</option>
 								<option value="o">Other</option>
