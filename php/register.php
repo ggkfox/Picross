@@ -35,7 +35,7 @@ if (isset($_POST['register-submit'])) {
             $sql = "SELECT * FROM users WHERE username =?;";
             $stmt = mysqli_stmt_init($conn);
             if (mysqli_stmt_prepare($stmt, $sql)) {
-                $errorMsg = $errorMsg . " SQL error ";
+                $errorMsg = $errorMsg . " SQL error 0 ";
             }
             else {
                 mysqli_stmt_bind_param($stmt, "s", $username);
@@ -54,7 +54,7 @@ if (isset($_POST['register-submit'])) {
             $sql = "INSERT INTO users (username, fname, lname, password, age, gender, location, avatar) VALUES (?,?,?,?,?,?,?,?)";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
-                $errorMsg = $errorMsg . " SQL error ";
+                $errorMsg = $errorMsg . " SQL error 1";
             }
             else {
                 $target_dir = "../uploads/";
