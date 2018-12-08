@@ -358,3 +358,19 @@ function sendScore() {
     xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
     xhttp.send();
 }
+
+function getHint() {
+    for (var i = 0; i < n; i++){
+        for (var i = 0; i < n; i++){
+            var x = j;
+            var y = i;
+            if (correct[y][x]==1 && player[y][x]!=1){
+                return{
+                    x:x,
+                    y:y
+                };
+            }
+        }
+    }
+    return null;
+}

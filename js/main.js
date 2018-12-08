@@ -19,6 +19,7 @@ var htmlLeaderboard = document.getElementById('leaderboard');
 var htmlScores = document.getElementById('scores');
 var htmlTilesRemaining = document.getElementById('remaining');
 var htmlScoreOrder = document.getElementById('scoreOrder');
+var htmlHint = document.getElementById('Hint');
 
 //-----------Configuration [adjustable by user]
 var windowSize = 575;
@@ -136,5 +137,13 @@ htmlScoreOrder.addEventListener('click', function(){
     levelname--;
     getScores();
     levelname++;
+}, false)
+
+htmlHint.addEventListener('click', function(){
+    var hint = getHint();
+    if (hint != null){
+        player[hint.y][hint.x]==1;
+        drawLayer2();
+    }
 }, false)
 
