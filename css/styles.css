@@ -305,17 +305,34 @@ table#tscore {
 
 /*----cv-----*/
 table#tCvBox {
-	display:flex;
-	width: 25%;
+	display: flex;
+	width: 90%;
 	margin: 0 auto;
 	margin-top: 35px;
-	padding: 100px;
-	background: rgba(0,0,0,0.4);
+	padding: 15px 20px 15px 20px;
+	background: rgba(0,0,0,0.25);
+	text-align: center;
+	color: red;
+	font-size: 17px;
+	font-weight: 50;
 }
-.cv1 {
+td.tdCvBox{
+	padding-right: 130px;
+}
+.cvPic {
 	width: 214px;
 	height: 214px;
 	border-radius: 50%;
+}
+
+.github-icon {
+	font-size: 200px;
+	margin-top: -80px;
+}
+
+.github-icon a {
+	font-size: 100px;
+	color: white;
 }
 
 /*-----footer-----*/

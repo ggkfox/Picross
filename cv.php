@@ -14,6 +14,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/styles.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Picross</title>
 </head>
 <body id="body" background="Images/background.jpg">
@@ -61,11 +62,34 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 		<div>
 			<table id="tCvBox">
 			<tr>
-			<td class="tdCvBox">
-			<img src="Images/cv1jpg.jpg" class="cv1">
-				<h1>Jace Black</h1>
+			<td class="tdCvBox" id ="jaceCv">
+			<img src="Images/image2.jpg" class="cvPic">
+				<h2>Jace Black</h2>
 				<h5>SCRUM Master</h5>
-				<p>Jace is my name and code is my game</p>
+				<h5>HTML/CSS/JS/PHP/SQL</h5>
+					<div class="github-icon">
+						<a href="https://github.com/JaceBlack" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+					</div>
+			</td>
+			
+			<td class="tdCvBox">
+			<img src="Images/image1.jpg" class="cvPic">
+				<h2>Beau Duinkerken</h2>
+				<h5>Head Developer</h5>
+				<h5>HTML/CSS/JS/PHP/SQL</h5>
+					<div class="github-icon">
+						<a href="https://github.com/bduinkerk" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+					</div>
+			</td>
+			
+			<td class="tdCvBox">
+			<img src="Images/image0.jpg" class="cvPic">
+				<h2>Joshua Holland</h2>
+				<h5>Senior Developer</h5>
+				<h5>HTML/CSS/JS/PHP/SQL</h5>
+					<div class="github-icon">
+						<a href="https://github.com/ggkfox" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+					</div>
 			</td>
 			</tr>
 			</table>
