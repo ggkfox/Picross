@@ -86,6 +86,9 @@ for ($n = 0; $n <= 19; $n++) { // generate scores (might be impossible to obtain
             if ($userVal >= 21 && $userVal < 30) {
                 $user = 'UserThree';
             }
+            else {
+                $user = 'UserOne';
+            }
             $n++;
             $new_score = "INSERT INTO scores (username,levelsize,levelname,duration,score,errors) VALUES ('$user','$n','$m','$duration', '$score', '$errors');";
             $result = $conn->query($new_score);
