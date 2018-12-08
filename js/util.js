@@ -361,16 +361,15 @@ function sendScore() {
 
 function getHint() {
     for (var i = 0; i < n; i++){
-        for (var i = 0; i < n; i++){
+        for (var j = 0; j < n; j++){
             var x = j;
             var y = i;
-            if (correct[y][x]==1 && player[y][x]!=1){
+            if (complete[y][x]==1 && player[y][x]!=1){
                 return{
-                    x:x,
-                    y:y
+                    x: x,
+                    y: y
                 };
             }
         }
     }
-    return null;
 }

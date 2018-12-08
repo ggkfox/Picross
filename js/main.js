@@ -142,7 +142,7 @@ htmlScoreOrder.addEventListener('click', function(){
 htmlHint.addEventListener('click', function(){
     var hint = getHint();
     if (hint != null){
-        player[hint.y][hint.x]==1;
+        player[hint.y][hint.x]=1;
         drawLayer2();
     }
 }, false)

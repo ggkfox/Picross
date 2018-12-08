@@ -62,7 +62,7 @@ if (isset($_POST['register-submit'])) {
             else {
                 $target_dir = "../uploads/";
                 $target_file = $target_dir . basename($_FILES["avatar"]["name"]);
-
+                
                 $uploadOk = 1;
 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

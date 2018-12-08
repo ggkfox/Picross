@@ -77,6 +77,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="blockColor"></p>
 							</div>
 							<p><button id="newGame">New Game</button></p>
+							<p><button id="Hint">Hint</button></p>
 						<h3 id="mode">Mode:</h3>
 							<h3 class="class" id="mode"></h3>
 						<div>
