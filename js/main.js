@@ -145,5 +145,16 @@ htmlHint.addEventListener('click', function(){
         player[hint.y][hint.x]=1;
         drawLayer2();
     }
+    tilesRemaining--;
+    if (tilesRemaining == 0) {
+        winText.style.display = "block";
+        topLayer.style.pointerEvents = "none";
+        calculateTime();
+        levelname--;
+        sendScore();
+        levelname++;
+        circleShow();
+        activeGame = false;
+    }
 }, false)
 
