@@ -62,33 +62,33 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 		<div>
 			<table id="tCvBox">
 			<tr>
-			<td class="tdCvBox" id ="jaceCv">
-			<img src="Images/image2.jpg" class="cvPic">
+			<td class="tdCvBox">
+			<img src="Images/image2.jpg" class="cvPic" alt="Jace Black photo">
 				<h2>Jace Black</h2>
 				<h5>SCRUM Master</h5>
 				<h5>HTML/CSS/JS/PHP/SQL</h5>
-					<div class="github-icon">
-						<a href="https://github.com/JaceBlack" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+					<div class="github-icon" >
+						<a href="https://github.com/JaceBlack" target="_blank"><i class="fa fa-github" aria-hidden="true"  alt="GitHubs main icon"></i></a>
 					</div>
 			</td>
 			
 			<td class="tdCvBox">
-			<img src="Images/image1.jpg" class="cvPic">
+			<img src="Images/image1.jpg" class="cvPic" alt="Beau Duinkerken photo">
 				<h2>Beau Duinkerken</h2>
 				<h5>Head Developer</h5>
 				<h5>HTML/CSS/JS/PHP/SQL</h5>
 					<div class="github-icon">
-						<a href="https://github.com/bduinkerk" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+						<a href="https://github.com/bduinkerk" target="_blank"><i class="fa fa-github" aria-hidden="true"  alt="GitHubs main icon"></i></a>
 					</div>
 			</td>
 			
 			<td class="tdCvBox">
-			<img src="Images/image0.jpg" class="cvPic">
+			<img src="Images/image0.jpg" class="cvPic" alt="Joshua Holland">
 				<h2>Joshua Holland</h2>
 				<h5>Senior Developer</h5>
 				<h5>HTML/CSS/JS/PHP/SQL</h5>
 					<div class="github-icon">
-						<a href="https://github.com/ggkfox" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+						<a href="https://github.com/ggkfox" target="_blank"><i class="fa fa-github" aria-hidden="true"  alt="GitHubs main icon"></i></a>
 					</div>
 			</td>
 			</tr>
