@@ -35,7 +35,6 @@ if (isset($_POST['register-submit'])) {
             $sql = "SELECT * FROM users WHERE username =?;";
             $stmt = mysqli_stmt_init($conn);
             if (mysqli_stmt_prepare($stmt, $sql)) {
-                $errorMsg = $errorMsg . " SQL error 0 ";
             }
             else {
                 mysqli_stmt_bind_param($stmt, "s", $username);
