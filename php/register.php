@@ -13,27 +13,25 @@ if (isset($_POST['register-submit'])) {
         $age = $_POST["age"];
         $location = $_POST["location"];
 
-        if($_POST["password-verify"] == $_POST["password"]) {
+        if(($_POST["password-verify"] == $_POST["password"]) && $_POST["password"] != "") {
             $password = $_POST["password"];
         }
         else {
             $errorMsg = $errorMsg . "Password doesnt match ";
         }
-
-        if(!preg_match('/^[a-zA-z]*$/', $fname)) {
+        if(!preg_match('/^[a-zA-z]+$/', $fname)) {
             $errorMsg = $errorMsg . " Invalid First Name ";
         }
-        if(!preg_match('/^[a-zA-z]*$/', $lname)) {
+        if(!preg_match('/^[a-zA-z]+$/', $lname)) {
             $errorMsg = $errorMsg . " Invalid Last Name ";
         }
-        if(!preg_match('/^[a-zA-z]*$/', $age)) {
+        if(!preg_match('/^[0-9]+$/', $age)) {
             $errorMsg = $errorMsg . " Invalid Age ";
         }
-        if(!preg_match('/^[a-zA-z]*$/', $location)) {
+        if(!preg_match('/^[a-zA-z]+$/', $location)) {
             $errorMsg = $errorMsg . " Invalid City ";
         }
-
-        if(preg_match("/^[a-zA-z0-9]*$/", $username)) {
+        if(preg_match("/^[a-zA-z0-9]+$/", $username)) {
             $sql = "SELECT * FROM users WHERE username =?;";
             $stmt = mysqli_stmt_init($conn);
             if (mysqli_stmt_prepare($stmt, $sql)) {
@@ -52,8 +50,7 @@ if (isset($_POST['register-submit'])) {
         else {
             $errorMsg = $errorMsg . " Username not allowed ";
         }
-
-        if ($errorMsg != "") {
+        if ($errorMsg == "") {
             $sql = "INSERT INTO users (username, fname, lname, password, age, gender, location, avatar) VALUES (?,?,?,?,?,?,?,?)";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -62,7 +59,7 @@ if (isset($_POST['register-submit'])) {
             else {
                 $target_dir = "../uploads/";
                 $target_file = $target_dir . basename($_FILES["avatar"]["name"]);
-                
+
                 $uploadOk = 1;
 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -97,9 +94,9 @@ if (isset($_POST['register-submit'])) {
                     if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
                         $hashpass = password_hash($password, PASSWORD_DEFAULT);
                         $avatar = $_FILES["avatar"]["name"];
-                        mysqli_stmt_bind_param($stmt, "sssssss", $username, $fname, $lname, $hashpass, $age, $gender, $location, $avatar);
+                        mysqli_stmt_bind_param($stmt, "ssssssss", $username, $fname, $lname, $hashpass, $age, $gender, $location, $avatar);
                         mysqli_stmt_execute($stmt);
-        
+    
                         header("Location: ../title.php?signup=Account Created");
                     } else {
                         $errorMsg = $errorMsg . " File didnt upload ";
@@ -112,7 +109,7 @@ if (isset($_POST['register-submit'])) {
             header("Location: ../title.php?error=".$errorMsg);
         }
      }
-     else {
+    else {
         $errorMsg = "Empty Field";
         header("Location: ../title.php?error=".$errorMsg);
     }
