@@ -20,9 +20,10 @@ var htmlScores = document.getElementById('scores');
 var htmlTilesRemaining = document.getElementById('remaining');
 var htmlScoreOrder = document.getElementById('scoreOrder');
 var htmlHint = document.getElementById('Hint');
+var canvasContainer = document.getElementById('ccontainer');
 
 //-----------Configuration [adjustable by user]
-var windowSize = 575;
+var windowSize = canvasContainer.offsetWidth * .9;
 var n = null; //number of tiles X and Y
 var border = (Math.round(n/2)+1)*17; //space for numbers
 var size = (windowSize-border)/n; //size of each tile
@@ -67,7 +68,7 @@ var c1 = baseLayer.getContext('2d');
 var c2 = topLayer.getContext('2d');
 var c3 = ballLayer.getContext('2d');
 
-configureCanvas();
+configureBoard();
 requestAnimationFrame(drawBalls);
 
 //-----LISTENERS------
@@ -106,6 +107,7 @@ htmlNewGame.addEventListener('click', function(evt) {
     winText.style.display = "none";
     mistakes = 0;
     htmlMistakes.textContent = "Mistakes: 0";
+    configureBoard();
     configureCanvas();
     circles = [];
     topLayer.style.pointerEvents = "visiblePainted";
@@ -158,3 +160,10 @@ htmlHint.addEventListener('click', function(){
     }
 }, false)
 
+window.addEventListener('load', function(){
+    setTimeout(getWindowSize, 30);
+})
+
+window.addEventListener('resize', function(){
+    getWindowSize();
+})

@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+/*if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 	header("Location: ../title.php");
   exit();
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -89,8 +89,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 						</div>
 					</div>
 				</td>
-				<td class="ccontainer">
-					<div>
+				<td>
+					<div id="ccontainer">
 						<canvas id="layer1"></canvas>
 						<canvas id="layer2"></canvas>
 						<canvas id="ballLayer"></canvas>

@@ -43,16 +43,11 @@ function countRemaining(complete) {
     htmlTilesRemaining.innerHTML="Remaining Tiles: " + tilesRemaining;
 }
 
-function configureCanvas() {
+function configureBoard() {
     if (n != htmlSizeSlider.value) {
         levelname = 1;
     }
 	n = htmlSizeSlider.value;
-	border = (Math.round(n/2)+1)*17;
-	correctColor = grid.correctColor[htmlBlockColorSlider.value];
-	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
-	BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
-    size = (windowSize-border)/n;
     startTime = 0;
     currTimeM = 0;
     currTimeS = 0;
@@ -64,8 +59,6 @@ function configureCanvas() {
     countRemaining(complete);
     player = blankArray();
     getScores();
-    drawLayer1();
-    drawLayer2();
 
     if(levelname != 10) {
         levelname++;
@@ -73,6 +66,23 @@ function configureCanvas() {
     else {
         levelname=1;
     }
+}
+
+function configureCanvas() {
+    baseLayer.height = windowSize + (2 * padding);
+    baseLayer.width = windowSize + (2 * padding);
+    topLayer.height = windowSize + (2 * padding);
+    topLayer.width = windowSize + (2 * padding);
+    ballLayer.height = windowSize + (2 * padding);
+    ballLayer.width = windowSize + (2 * padding);
+	border = (Math.round(n/2)+1)*17;
+	correctColor = grid.correctColor[htmlBlockColorSlider.value];
+	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
+	BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
+    size = (windowSize-border)/n;
+    drawLayer1();
+    drawLayer2();
+
 }
 
 function blankArray(){
@@ -372,4 +382,10 @@ function getHint() {
             }
         }
     }
+}
+
+function getWindowSize(){
+    windowSize = canvasContainer.offsetWidth * .9;
+    configureCanvas();
+    canvasContainer.style.height = parseInt(windowSize)+"px";
 }
