@@ -369,18 +369,45 @@ function sendScore() {
     xhttp.send();
 }
 
-function getHint() {
+function getBest() {
+    var tempArr = [];
     for (var i = 0; i < n; i++){
         for (var j = 0; j < n; j++){
             var x = j;
             var y = i;
             if (complete[y][x]==1 && player[y][x]!=1){
-                return{
-                    x: x,
-                    y: y
-                };
+                tempArr.push([x,y]);
             }
         }
+    }
+    if (tempArr.length != 0) {
+        htmlTilesRemaining.innerHTML="Remaining Tiles: " + --tilesRemaining;
+        var i = tempArr[Math.floor(Math.random()*tempArr.length)];
+        return {
+            x: i[0],
+            y: i[1]
+        };
+    }
+}
+
+function getWorst() {
+    var tempArr = [];
+    for (var i = 0; i < n; i++){
+        for (var j = 0; j < n; j++){
+            var x = j;
+            var y = i;
+            if (complete[y][x]==0 && player[y][x]!=0){
+                tempArr.push([x,y]);
+            }
+        }
+    }
+    if (tempArr.length != 0) {
+        htmlMistakes.textContent = "Mistakes: " + ++mistakes;
+        var i = tempArr[Math.floor(Math.random()*tempArr.length)];
+        return {
+            x: i[0],
+            y: i[1]
+        };
     }
 }
 

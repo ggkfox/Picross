@@ -79,8 +79,7 @@ topLayer.addEventListener('click', function(evt) {
         if (player[coordinates.y][coordinates.x] == 0) {
             player[coordinates.y][coordinates.x] = 1;
             if (isCorrect(coordinates.x, coordinates.y)) {
-                tilesRemaining--;
-                htmlTilesRemaining.innerHTML="Remaining Tiles: " + tilesRemaining;
+                htmlTilesRemaining.innerHTML="Remaining Tiles: " + --tilesRemaining;
                 activeGame = true;
             }
             else {
@@ -142,12 +141,11 @@ htmlScoreOrder.addEventListener('click', function(){
 }, false)
 
 htmlHint.addEventListener('click', function(){
-    var hint = getHint();
+    var hint = getBest();
     if (hint != null){
         player[hint.y][hint.x]=1;
         drawLayer2();
     }
-    tilesRemaining--;
     if (tilesRemaining == 0) {
         winText.style.display = "block";
         topLayer.style.pointerEvents = "none";
