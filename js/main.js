@@ -19,7 +19,8 @@ var htmlLeaderboard = document.getElementById('leaderboard');
 var htmlScores = document.getElementById('scores');
 var htmlTilesRemaining = document.getElementById('remaining');
 var htmlScoreOrder = document.getElementById('scoreOrder');
-var htmlHint = document.getElementById('Hint');
+var htmlHint = document.getElementById('hint');
+var htmlBadHint = document.getElementById('incHint');
 var canvasContainer = document.getElementById('ccontainer');
 
 //-----------Configuration [adjustable by user]
@@ -155,6 +156,14 @@ htmlHint.addEventListener('click', function(){
         levelname++;
         circleShow();
         activeGame = false;
+    }
+}, false)
+
+htmlBadHint.addEventListener('click', function(){
+    var hint = getWorst();
+    if (hint != null){
+        player[hint.y][hint.x]=1;
+        drawLayer2();
     }
 }, false)
 

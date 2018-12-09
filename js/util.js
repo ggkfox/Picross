@@ -99,7 +99,6 @@ function blankArray(){
 }
 
 function generateArray(){
-
     if (document.getElementById("gameMode").value == "arcade") {
         var arr = [];
         var xhttp;
@@ -396,7 +395,7 @@ function getWorst() {
         for (var j = 0; j < n; j++){
             var x = j;
             var y = i;
-            if (complete[y][x]==0 && player[y][x]!=0){
+            if (complete[y][x]==0 && player[y][x]==0){
                 tempArr.push([x,y]);
             }
         }
