@@ -1,18 +1,9 @@
 <?php 
-// CSci 130 - Web Programming - Lab Week 11
+//header("Location: ../title.php")
+//$size_matrix = (isset($_GET["size"])) ? $_GET["size"] : '7';
+$size_matrix = $_GET["size"];
+$source_file = "../boards/board1.jpg";
 
-// TO DO...
-// Retrieve the filename  AND the size of the matrix from the client with a POST
-
-$size_matrix=50;
-
-// Upload the file
-// see files given on blackboard
-
-
-// Read the image file 
-$source_file = "nike.jpg";
-// http://php.net/manual/en/function.imagecreatefromjpeg.php
 $im = imagecreatefromjpeg($source_file); 
 $imgw = imagesx($im);
 $imgh = imagesy($im);
@@ -40,10 +31,6 @@ for ($i=0; $i<$imgw; $i++) {
         }
 }
 
-echo 'Image of size '. $imgw .' x '. $imgh .'<br>';
-echo 'Cells of size '. $size_cellw .' x '. $size_cellh .'<br>';
-
-
 // Part 1: Create a matrix of size n x n that contains in each cell the average of the values in map of the corresponding area in the image
 $map_resize = [];
 for ($i=0;$i<$size_matrix;$i++) {
@@ -70,7 +57,25 @@ for ($i=0;$i<$size_matrix;$i++) {
 	}
 }
 
-// Part 3: Display the matrix in a Table in HTML
+// change orientation of image
+$rotated = [];
+for ($i=0;$i<$size_matrix;$i++) {
+	$rotated[$i] = [];
+	for ($j=0;$j<$size_matrix;$j++)
+		$rotated[$i][$j] = $map_binary[$size_matrix-$j-1][$i];
+
+}
+
+// send grid cordinates
+echo "\"";
+echo json_encode($rotated);
+echo "\"";
+
+
+/*
+echo 'Image of size '. $imgw .' x '. $imgh .'<br>';
+echo 'Cells of size '. $size_cellw .' x '. $size_cellh .'<br>';
+
 echo '<TABLE STYLE="border-collapse: collapse;">';
 for ($i=0;$i<$size_matrix;$i++) {
 	echo '<TR>';
@@ -79,12 +84,6 @@ for ($i=0;$i<$size_matrix;$i++) {
 	echo '<TR>';
 }
 echo '</TABLE>';
+*/
 
-// Use AJAX to retrieve the content of the matrix that you need to display in your table
-// echo 'JSON string containing the matrix representing the image'
-
-// Display the image:
-// http://php.net/manual/en/function.imagejpeg.php
-//header('Content-type: image/jpeg');
-//imagejpeg($im);
 ?>

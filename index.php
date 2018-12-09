@@ -85,8 +85,17 @@ session_start();
 						<select id="gameMode">
 							<option value = "arcade">Arcade</option>
 							<option value = "time">Time Attack</option>
+							<option value = "image">Image</option>
 							<option value = "random"> Random</option>
 						</select>
+						</div>
+						<div>
+						<h3>Image Upload:</h3>
+						<form action="php/upload.php" method="post" enctype="multipart/form-data">	
+						<p><button type ="button" onclick="document.getElementById('fileup').click()">Select Image</button></p>
+						<p><input type="submit" name="upload-submit" id="upload-submit" value="Upload"></p>
+						<p><label for="fileup"></label><input type="file" name="fileup" id="fileup"></p>
+						</form>
 						</div>
 					</div>
 				</td>

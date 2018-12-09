@@ -125,6 +125,19 @@ function generateArray(){
         xhttp.open("GET", "php/getBoard.php?size="+size+"&levelname="+levelname, false);
         xhttp.send();
     }
+    else if (document.getElementById("gameMode").value == "image") {
+        var arr = [];
+        var xhttp;
+        var size = n;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                arr = JSON.parse(JSON.parse(this.responseText));
+            }
+        };
+        xhttp.open("GET", "php/image.php?size="+size, false);
+        xhttp.send();
+    }
     else {
         var arr = new Array(n);
         for (var i = 0; i < n; i++) {
@@ -355,17 +368,19 @@ function getScores() {
 }
 
 function sendScore() {
-    var xhttp;
-    var size = n;
-    var duration = currTimeM * 60 + currTimeS;
-    var nonspace = (n*n)-correctTiles;
-    var nonmis = nonspace-mistakes;
-    var score = (Math.max(nonmis,0))/nonspace;
-    var errors = mistakes;
-    winText.textContent = " You Win!!! "+" Time="+duration+"s Score="+score;
-    xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
-    xhttp.send();
+    if (document.getElementById("gameMode").value == "arcade" || document.getElementById("gameMode").value == "time") {
+        var xhttp;
+        var size = n;
+        var duration = currTimeM * 60 + currTimeS;
+        var nonspace = (n*n)-correctTiles;
+        var nonmis = nonspace-mistakes;
+        var score = (Math.max(nonmis,0))/nonspace;
+        var errors = mistakes;
+        winText.textContent = " You Win!!! "+" Time="+duration+"s Score="+score;
+        xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
+        xhttp.send();
+    }
 }
 
 function getBest() {

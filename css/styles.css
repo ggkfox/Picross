@@ -249,6 +249,10 @@ table#tscore {
 	display:inline-block;
 }
 
+#fileup {
+	display: none;
+}
+
 /* canvas */
 canvas {
     position: absolute;

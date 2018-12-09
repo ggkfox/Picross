@@ -142,6 +142,10 @@ htmlScoreOrder.addEventListener('click', function(){
 }, false)
 
 htmlHint.addEventListener('click', function(){
+    if (activeGame == false) {
+        activeGame = true;
+    }
+    calculateTime();
     var hint = getBest();
     if (hint != null){
         player[hint.y][hint.x]=1;
@@ -160,6 +164,10 @@ htmlHint.addEventListener('click', function(){
 }, false)
 
 htmlBadHint.addEventListener('click', function(){
+    if (activeGame == false) {
+        activeGame = true;
+    }
+    calculateTime();
     var hint = getWorst();
     if (hint != null){
         player[hint.y][hint.x]=1;
