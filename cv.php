@@ -56,45 +56,39 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			</tr>
 		</div>
 	</div>
-	
-	<div class="body">
-		<div class="container">
-		<div>
-			<table id="tCvBox">
-			<tr>
-			<td class="tdCvBox">
+
+	<div id="cvBox" class="container">
+
+		<div class="dcvBox">
 			<img src="Images/image2.jpg" class="cvPic" alt="Jace Black photo">
-				<h2>Jace Black</h2>
-				<h5>SCRUM Master</h5>
-				<h5>HTML/CSS/JS/PHP/SQL</h5>
-					<div class="github-icon" >
-						<a href="https://github.com/JaceBlack" target="_blank"><i class="fa fa-github" aria-hidden="true"  alt="GitHubs main icon"></i></a>
-					</div>
-			</td>
-			
-			<td class="tdCvBox">
+			<h2>Jace Black</h2>
+			<h5>SCRUM Master</h5>
+			<h5>HTML/CSS/JS/PHP/SQL</h5>
+			<div class="github-icon" >
+				<a href="https://github.com/JaceBlack" target="_blank"><i class="fa fa-github" aria-hidden="true"  alt="GitHubs main icon"></i></a>
+			</div>
+		</div>
+		
+		<div class="dcvBox">
 			<img src="Images/image1.jpg" class="cvPic" alt="Beau Duinkerken photo">
-				<h2>Beau Duinkerken</h2>
-				<h5>Head Developer</h5>
-				<h5>HTML/CSS/JS/PHP/SQL</h5>
-					<div class="github-icon">
-						<a href="https://github.com/bduinkerk" target="_blank"><i class="fa fa-github" aria-hidden="true"  alt="GitHubs main icon"></i></a>
-					</div>
-			</td>
-			
-			<td class="tdCvBox">
+			<h2>Beau Duinkerken</h2>
+			<h5>Head Developer</h5>
+			<h5>HTML/CSS/JS/PHP/SQL</h5>
+			<div class="github-icon">
+				<a href="https://github.com/bduinkerk" target="_blank"><i class="fa fa-github" aria-hidden="true"  alt="GitHubs main icon"></i></a>
+			</div>
+		</div>
+		
+		<div class="dcvBox">
 			<img src="Images/image0.jpg" class="cvPic" alt="Joshua Holland">
-				<h2>Joshua Holland</h2>
-				<h5>Senior Developer</h5>
-				<h5>HTML/CSS/JS/PHP/SQL</h5>
-					<div class="github-icon">
-						<a href="https://github.com/ggkfox" target="_blank"><i class="fa fa-github" aria-hidden="true"  alt="GitHubs main icon"></i></a>
-					</div>
-			</td>
-			</tr>
-			</table>
+			<h2>Joshua Holland</h2>
+			<h5>Senior Developer</h5>
+			<h5>HTML/CSS/JS/PHP/SQL</h5>
+			<div class="github-icon">
+				<a href="https://github.com/ggkfox" target="_blank"><i class="fa fa-github" aria-hidden="true"  alt="GitHubs main icon"></i></a>
+			</div>
 		</div>
-		</div>
+
 	</div>
 
 	<div class="footer">
