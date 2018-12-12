@@ -17,7 +17,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Picross</title>
 </head>
-<body id="body" background="Images/background.jpg">
+<body id="body" background="Images/background.jpg" alt="website background">
 
 
 	<div class="navbar">
@@ -48,7 +48,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 							<ul id="logout">
 								<li class="logout" id="viewUser"><?php echo "Welcome, " . $_SESSION['username']; ?></li>
 								<li class="logout"><input type="submit" name="logout-submit" id="logout-submit" value="Logout"></li>
-								<li class="logout" id="viewAvatar"><img id="avatarImg" src="<?php echo $_SESSION['avatar'];?>"/></li>
+								<li class="logout" id="viewAvatar"><img id="avatarImg" src="<?php echo $_SESSION['avatar'];?>" alt="Profile Image"/></li>
 							</ul>
 						</form>
 					</td>
@@ -80,7 +80,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 		</div>
 		
 		<div class="dcvBox">
-			<img src="Images/image0.jpg" class="cvPic" alt="Joshua Holland">
+			<img src="Images/image0.jpg" class="cvPic" alt="Joshua Holland photo">
 			<h2>Joshua Holland</h2>
 			<h5>Senior Developer</h5>
 			<h5>HTML/CSS/JS/PHP/SQL</h5>
