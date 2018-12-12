@@ -76,7 +76,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 							<div>
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="blockColor"></p>
 							</div>
-							<p><button id="newGame">New Game</button></p>
+							<br>
 						<h3 id="mode">Mode:</h3>
 							<h3 class="class" id="mode"></h3>
 						<div>
@@ -86,8 +86,10 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 							<option value = "image">Image</option>
 							<option value = "random"> Random</option>
 						</select>
+						<p><button id="newGame">New Game</button></p>
 						</div>
 						<div>
+							<br>
 							<h3>Image Upload:</h3>
 							<form action="php/upload.php" method="post" enctype="multipart/form-data">	
 								<p><button type ="button" onclick="document.getElementById('fileup').click()">Select Image</button></p>
@@ -96,6 +98,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 							</form>
 						</div>
 						<div>
+							<br>
 							<h3>Hints: </h3>
 							<p><button id="hint">Correct</button></p>
 							<p><button id="incHint">Incorrect</button></p>
