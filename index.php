@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-/*if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 	header("Location: ../title.php");
   exit();
-}*/
+}
 ?>
 
 <!DOCTYPE html>
@@ -72,13 +72,11 @@ session_start();
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="gridColor"></p>
 							</div>
 						<h3 id="h3BlockColorT">Correct Color:</h3>
-						<h3 id="h3BlockColor">Teal</h3>
+						<h3 id="h3BlockColor">Lime</h3>
 							<div>
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="blockColor"></p>
 							</div>
 							<p><button id="newGame">New Game</button></p>
-							<p><button id="hint">Correct - Hint</button></p>
-							<p><button id="incHint">Incorrect - Hint</button></p>
 						<h3 id="mode">Mode:</h3>
 							<h3 class="class" id="mode"></h3>
 						<div>
@@ -90,12 +88,17 @@ session_start();
 						</select>
 						</div>
 						<div>
-						<h3>Image Upload:</h3>
-						<form action="php/upload.php" method="post" enctype="multipart/form-data">	
-						<p><button type ="button" onclick="document.getElementById('fileup').click()">Select Image</button></p>
-						<p><input type="submit" name="upload-submit" id="upload-submit" value="Upload"></p>
-						<p><label for="fileup"></label><input type="file" name="fileup" id="fileup"></p>
-						</form>
+							<h3>Image Upload:</h3>
+							<form action="php/upload.php" method="post" enctype="multipart/form-data">	
+								<p><button type ="button" onclick="document.getElementById('fileup').click()">Select Image</button></p>
+								<p><input type="submit" name="upload-submit" id="upload-submit" value="Upload"></p>
+								<p><label for="fileup"></label><input type="file" name="fileup" id="fileup"></p>
+							</form>
+						</div>
+						<div>
+							<h3>Hints: </h3>
+							<p><button id="hint">Correct</button></p>
+							<p><button id="incHint">Incorrect</button></p>
 						</div>
 					</div>
 				</td>
