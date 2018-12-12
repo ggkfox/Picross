@@ -42,7 +42,7 @@ var player;
 
 //----------Configuartion [not by user]
 var grid = {"border": ["2", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "10", "10", "11", "11", "12", "12", "13"],
-			"correctColor" : ["navy", "aqua", "orange", "yellow", "lime", "teal", "white", "saddlebrown", "purple", "olive"],
+			"correctColor" : ["navy", "aqua", "orange", "yellow", "teal", "lime", "white", "saddlebrown", "purple", "olive"],
 			"backgroundColor" : ["powderblue", "rosybrown", "lavender", "lightcyan", "thistle", "snow", "cornsilk", "darkolivegreen", "darkslategrey", "mediumpurple"],
 			"fontColor" : ["white", "white", "white", "white",  "white", "white", "white", "white", "white", "white"]}
 var gap = 5; //gap between tiles (this number should be half of what you with the gap to be)

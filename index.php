@@ -72,7 +72,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="gridColor"></p>
 							</div>
 						<h3 id="h3BlockColorT">Correct Color:</h3>
-						<h3 id="h3BlockColor">Teal</h3>
+						<h3 id="h3BlockColor">Lime</h3>
 							<div>
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="blockColor"></p>
 							</div>
