@@ -46,7 +46,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 							<ul id="logout">
 								<li class="logout" id="viewUser"><?php echo "Welcome, " . $_SESSION['username']; ?></li>
 								<li class="logout"><input type="submit" name="logout-submit" id="logout-submit" value="Logout"></li>
-								<li class="logout" id="viewAvatar"><img id="avatarImg" src="<?php echo $_SESSION['avatar'];?>"/></li>
+								<li class="logout" id="viewAvatar"><img id="avatarImg" src="<?php echo $_SESSION['avatar'];?>" alt="Profile Image"/></li>
 							</ul>
 						</form>
 					</td>
@@ -72,24 +72,41 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="gridColor"></p>
 							</div>
 						<h3 id="h3BlockColorT">Correct Color:</h3>
-						<h3 id="h3BlockColor">Teal</h3>
+						<h3 id="h3BlockColor">Lime</h3>
 							<div>
 								<p><input type="range" min="0" max="9" value="5" class="slider" id="blockColor"></p>
 							</div>
-							<p><button id="newGame">New Game</button></p>
+							<br>
 						<h3 id="mode">Mode:</h3>
 							<h3 class="class" id="mode"></h3>
 						<div>
 						<select id="gameMode">
 							<option value = "arcade">Arcade</option>
 							<option value = "time">Time Attack</option>
+							<option value = "image">Image</option>
 							<option value = "random"> Random</option>
 						</select>
+						<p><button id="newGame">New Game</button></p>
+						</div>
+						<div>
+							<br>
+							<h3>Image Upload:</h3>
+							<form action="php/upload.php" method="post" enctype="multipart/form-data">	
+								<p><button type ="button" onclick="document.getElementById('fileup').click()">Select Image</button></p>
+								<p><input type="submit" name="upload-submit" id="upload-submit" value="Upload"></p>
+								<p><label for="fileup"></label><input type="file" name="fileup" id="fileup"></p>
+							</form>
+						</div>
+						<div>
+							<br>
+							<h3>Hints: </h3>
+							<p><button id="hint">Correct</button></p>
+							<p><button id="incHint">Incorrect</button></p>
 						</div>
 					</div>
 				</td>
-				<td class="ccontainer">
-					<div>
+				<td>
+					<div id="ccontainer">
 						<canvas id="layer1"></canvas>
 						<canvas id="layer2"></canvas>
 						<canvas id="ballLayer"></canvas>

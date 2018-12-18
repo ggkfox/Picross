@@ -1,6 +1,5 @@
 <?php
 include_once("connection.php");
-
 $tbl_users = "CREATE TABLE IF NOT EXISTS users (
                id INT(5) NOT NULL AUTO_INCREMENT,
 			   username VARCHAR(16) NOT NULL,
@@ -14,7 +13,6 @@ $tbl_users = "CREATE TABLE IF NOT EXISTS users (
                PRIMARY KEY (id),
                UNIQUE KEY username (username)
             )";
-
 $tbl_scores = "CREATE TABLE IF NOT EXISTS scores (
                id INT(5) NOT NULL AUTO_INCREMENT,
                username VARCHAR(255) NOT NULL,
@@ -25,7 +23,6 @@ $tbl_scores = "CREATE TABLE IF NOT EXISTS scores (
                errors INT(3) NOT NULL,
                PRIMARY KEY (id)
             )";
-
 $tbl_levels = "CREATE TABLE IF NOT EXISTS levels (
                id INT(5) NOT NULL AUTO_INCREMENT,
                levelsize INT(10) NOT NULL,
@@ -33,28 +30,24 @@ $tbl_levels = "CREATE TABLE IF NOT EXISTS levels (
                position VARCHAR(10000) NOT NULL,
                PRIMARY KEY (id)
             )";
-
 $query = $conn->query($tbl_users);
 if ($query === TRUE) {
 	echo "<h3>user table created</h3>"; 
 } else {
 	echo "<h3>user table NOT created</h3>"; 
 }
-
 $query = $conn->query($tbl_scores);
 if ($query === TRUE) {
 	echo "<h3>score table created</h3>"; 
 } else {
 	echo "<h3>score table NOT created</h3>"; 
 }
-
 $query = $conn->query($tbl_levels);
 if ($query === TRUE) {
 	echo "<h3>level table created</h3>"; 
 } else {
 	echo "<h3>level table NOT created</h3>"; 
 }
-
 for ($n = 0; $n <= 19; $n++) { //generates levels
   $position0 = array(array());
   for ($m = 1; $m <= 10; $m++) {
@@ -70,7 +63,6 @@ for ($n = 0; $n <= 19; $n++) { //generates levels
   $n--;
   }
 }
-
 for ($n = 0; $n <= 19; $n++) { // generate scores (might be impossible to obtain normally)
     for ($m = 1; $m <= 10; $m++) {
         for ($i = 1; $i <= 5; $i++) {
@@ -97,24 +89,15 @@ for ($n = 0; $n <= 19; $n++) { // generate scores (might be impossible to obtain
         }
     }
   }
-
 //generate 3 users
 $hashpass = password_hash('123', PASSWORD_DEFAULT); 
 $new_user = "INSERT INTO users (username,fname,lname,password,age,gender,location,avatar) VALUES ('UserOne', 'UserOne', 'NameOne', '$hashpass','1', 'm', 'fresno', '1.png');";
 $result = $conn->query($new_user);
-
 $hashpass = password_hash('456', PASSWORD_DEFAULT);
 $new_user = "INSERT INTO users (username,fname,lname,password,age,gender,location,avatar) VALUES ('UserTwo', 'UserTwo', 'NameTwo', '$hashpass','2', 'f', 'clovis', '2.png');";
 $result = $conn->query($new_user);
-
 $hashpass = password_hash('789', PASSWORD_DEFAULT);
 $new_user = "INSERT INTO users (username,fname,lname,password,age,gender,location,avatar) VALUES ('UserThree', 'UserThree', 'NameThree', '$hashpass','3', 'o', 'clovis', '3.png');";
 $result = $conn->query($new_user);
-
-
-
-
-
 $conn->close();
-
 ?>

@@ -43,16 +43,11 @@ function countRemaining(complete) {
     htmlTilesRemaining.innerHTML="Remaining Tiles: " + tilesRemaining;
 }
 
-function configureCanvas() {
+function configureBoard() {
     if (n != htmlSizeSlider.value) {
         levelname = 1;
     }
 	n = htmlSizeSlider.value;
-	border = (Math.round(n/2)+1)*17;
-	correctColor = grid.correctColor[htmlBlockColorSlider.value];
-	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
-	BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
-    size = (windowSize-border)/n;
     startTime = 0;
     currTimeM = 0;
     currTimeS = 0;
@@ -64,8 +59,6 @@ function configureCanvas() {
     countRemaining(complete);
     player = blankArray();
     getScores();
-    drawLayer1();
-    drawLayer2();
 
     if(levelname != 10) {
         levelname++;
@@ -73,6 +66,23 @@ function configureCanvas() {
     else {
         levelname=1;
     }
+}
+
+function configureCanvas() {
+    baseLayer.height = windowSize + (2 * padding);
+    baseLayer.width = windowSize + (2 * padding);
+    topLayer.height = windowSize + (2 * padding);
+    topLayer.width = windowSize + (2 * padding);
+    ballLayer.height = windowSize + (2 * padding);
+    ballLayer.width = windowSize + (2 * padding);
+	border = (Math.round(n/2)+1)*17;
+	correctColor = grid.correctColor[htmlBlockColorSlider.value];
+	fontColor = grid.fontColor[htmlBackgroundColorSlider.value];
+	BackgroundColor.style.backgroundColor = grid.backgroundColor[htmlBackgroundColorSlider.value];
+    size = (windowSize-border)/n;
+    drawLayer1();
+    drawLayer2();
+
 }
 
 function blankArray(){
@@ -89,7 +99,6 @@ function blankArray(){
 }
 
 function generateArray(){
-
     if (document.getElementById("gameMode").value == "arcade") {
         var arr = [];
         var xhttp;
@@ -114,6 +123,19 @@ function generateArray(){
             }
         };
         xhttp.open("GET", "php/getBoard.php?size="+size+"&levelname="+levelname, false);
+        xhttp.send();
+    }
+    else if (document.getElementById("gameMode").value == "image") {
+        var arr = [];
+        var xhttp;
+        var size = n;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                arr = JSON.parse(JSON.parse(this.responseText));
+            }
+        };
+        xhttp.open("GET", "php/image.php?size="+size, false);
         xhttp.send();
     }
     else {
@@ -346,15 +368,65 @@ function getScores() {
 }
 
 function sendScore() {
-    var xhttp;
-    var size = n;
-    var duration = currTimeM * 60 + currTimeS;
-    var nonspace = (n*n)-correctTiles;
-    var nonmis = nonspace-mistakes;
-    var score = (Math.max(nonmis,0))/nonspace;
-    var errors = mistakes;
-    winText.textContent = " You Win!!! "+" Time="+duration+"s Score="+score;
-    xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
-    xhttp.send();
+    if (document.getElementById("gameMode").value == "arcade" || document.getElementById("gameMode").value == "time") {
+        var xhttp;
+        var size = n;
+        var duration = currTimeM * 60 + currTimeS;
+        var nonspace = (n*n)-correctTiles;
+        var nonmis = nonspace-mistakes;
+        var score = (Math.max(nonmis,0))/nonspace;
+        var errors = mistakes;
+        winText.textContent = " You Win!!! "+" Time="+duration+"s Score="+score;
+        xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "php/sendScore.php?username="+username+"&size="+size+"&levelname="+levelname+"&duration="+duration+"&score="+score+"&errors="+errors , true);
+        xhttp.send();
+    }
+}
+
+function getBest() {
+    var tempArr = [];
+    for (var i = 0; i < n; i++){
+        for (var j = 0; j < n; j++){
+            var x = j;
+            var y = i;
+            if (complete[y][x]==1 && player[y][x]!=1){
+                tempArr.push([x,y]);
+            }
+        }
+    }
+    if (tempArr.length != 0) {
+        htmlTilesRemaining.innerHTML="Remaining Tiles: " + --tilesRemaining;
+        var i = tempArr[Math.floor(Math.random()*tempArr.length)];
+        return {
+            x: i[0],
+            y: i[1]
+        };
+    }
+}
+
+function getWorst() {
+    var tempArr = [];
+    for (var i = 0; i < n; i++){
+        for (var j = 0; j < n; j++){
+            var x = j;
+            var y = i;
+            if (complete[y][x]==0 && player[y][x]==0){
+                tempArr.push([x,y]);
+            }
+        }
+    }
+    if (tempArr.length != 0) {
+        htmlMistakes.textContent = "Mistakes: " + ++mistakes;
+        var i = tempArr[Math.floor(Math.random()*tempArr.length)];
+        return {
+            x: i[0],
+            y: i[1]
+        };
+    }
+}
+
+function getWindowSize(){
+    windowSize = canvasContainer.offsetWidth * .9;
+    configureCanvas();
+    canvasContainer.style.height = parseInt(windowSize)+"px";
 }

@@ -16,7 +16,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <link rel="stylesheet" href="css/styles.css">
     <title>Picross</title>
 </head>
-<body id="body" background="Images/background.jpg">
+<body id="body" background="Images/background.jpg" alt="website background">
 
 	<div class="navbar">
 		<div class="container">
@@ -46,7 +46,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 							<ul id="logout">
 								<li class="logout" id="viewUser"><?php echo "Welcome, " . $_SESSION['username']; ?></li>
 								<li class="logout"><input type="submit" name="logout-submit" id="logout-submit" value="Logout"></li>
-								<li class="logout" id="viewAvatar"><img id="avatarImg" src="<?php echo $_SESSION['avatar'];?>"/></li>
+								<li class="logout" id="viewAvatar"><img id="avatarImg" src="<?php echo $_SESSION['avatar'];?>" alt="Profile Image"/></li>
 							</ul>
 						</form>
 					</td>
@@ -60,8 +60,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<tr>
 			<td class="tdvideo">
 				<div>
-				<video id="video1" width="1000" controls>
-   					<source src="video/play_picross.mp4" type="video/mp4">
+				<video id="video1" width="1175" controls>
+   					<source src="video/play_picross.mp4" type="video/mp4" alt="Video describing how to play picross and the theory and strategies involved.">
 
  				</video>
 				</div>

@@ -11,7 +11,7 @@ session_start();
     <link rel="stylesheet" href="css/styles.css">
     <title>Picross</title>
 </head>
-<body id="body" background="Images/background.jpg">
+<body id="body" background="Images/background.jpg" alt="website background">
 
 	<div class="navbar">
 		<div class="container">
@@ -41,7 +41,7 @@ session_start();
 							<ul id="logout">
 								<li class="logout" id="viewUser"><?php echo "Welcome, " . $_SESSION['username']; ?></li>
 								<li class="logout"><input type="submit" name="logout-submit" id="logout-submit" value="Logout"></li>
-								<li class="logout" id="viewAvatar"><img id="avatarImg" src="<?php echo $_SESSION['avatar'];?>"/></li>
+								<li class="logout" id="viewAvatar"><img id="avatarImg" src="<?php echo $_SESSION['avatar'];?>" alt="Profile Image"/></li>
 							</ul>
 						</form>
 					</td>
